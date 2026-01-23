@@ -2,15 +2,12 @@
 
 Reference websites for visual inspiration. Use MCP browser/screenshot tools to analyze these.
 
-## Premium Furniture & Craftsman Sites
+## Architecture Websites
 
 | URL | Why Reference |
 |-----|---------------|
-| https://www.bfremovals.co.uk | Clean hero, trust signals, service clarity |
-| https://www.madebyhand.com | Craftsman aesthetic, product photography, heritage feel |
-| https://www.arhaus.com | Furniture gallery layout, warm tones, quality imagery |
-| https://www.restorationhardware.com | Luxury whitespace, minimal text, image-forward |
-| https://www.mcguirefurniture.com | Artisan craftsmanship messaging, classic typography |
+| https://bmadb.fr | Clean animations and welcoming aesthetic |
+| https://saisei-sbj.webflow.io | Clean animations and welcoming aesthetic |
 
 ## Layout & Interaction Patterns
 
@@ -18,13 +15,6 @@ Reference websites for visual inspiration. Use MCP browser/screenshot tools to a
 |-----|----------|
 | https://www.awwwards.com/websites/furniture/ | Award-winning furniture site patterns |
 | https://www.siteinspire.com/websites?categories=30 | Minimal portfolio layouts |
-
-## Serbian/Regional Context
-
-| URL | Note |
-|-----|------|
-| https://www.forma-ideale.rs | Local furniture market expectations |
-| https://www.simpo.rs | Serbian furniture presentation style |
 
 ## What to Extract
 

@@ -16,9 +16,8 @@ Quick routing for context files.
 
 1. **Whitespace over density** - When in doubt, add space
 2. **Images over text** - Large photos, minimal captions
-3. **Classic over trendy** - No ephemeral design patterns
-4. **Warm over corporate** - Professional but approachable
-5. **Real over stock** - Only actual Olimp project photos
+3. **Warm over corporate** - Professional but approachable
+4. **Real over stock** - Only actual Olimp project photos
 
 ## Quick Reference
 
