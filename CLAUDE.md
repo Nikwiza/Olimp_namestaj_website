@@ -2,53 +2,48 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Overview
+## Project
 
-Olimp Project is a React-based website for a Serbian carpentry and furniture business founded in 1996. The site emphasizes craftsmanship heritage, quality, and trust built over 28+ years.
+React website for Olimp, a Serbian carpentry business (est. 1996). Emphasis on heritage, craftsmanship, and trust.
 
 ## Commands
 
 ```bash
-npm run dev      # Start Vite dev server with HMR
-npm run build    # Production build (outputs to dist/)
-npm run lint     # Run ESLint
-npm run preview  # Preview production build locally
+npm run dev      # Vite dev server
+npm run build    # Production build
+npm run lint     # ESLint
+npm run preview  # Preview build
 ```
 
-## Tech Stack
+## Stack
 
-- React 19 with Vite 7
-- TailwindCSS 4 for styling
-- ESLint 9 (flat config) for linting
-- PostCSS with Autoprefixer
+React 19 + Vite 7 + TailwindCSS 4
 
-## Architecture
+## Context Directory
+
+**Read before any UI/design work:**
+
+| File | Use When |
+|------|----------|
+| `context/design-principles.md` | First stop - routes you to correct context |
+| `context/brand-story.md` | Copy, tone, visual guidelines, trust signals |
+| `context/examples.md` | Reference URLs for MCP screenshot analysis |
+
+## Structure
 
 ```
 src/
-├── main.jsx          # React entry point
-├── App.jsx           # Main component
-├── index.css         # Global styles
-└── assets/images/    # Gallery organized by room type
-    ├── Gallery/
-    │   ├── Bedrooms/
-    │   ├── Kitchens/
-    │   ├── LivingRooms/
-    │   └── Other/
+├── main.jsx, App.jsx     # Entry points
+├── index.css             # Global styles
+└── assets/images/Gallery # Project photos by room type
 
-context/
-└── brand-story.md    # Brand guidelines - READ THIS for design decisions
-
-last-site-example/    # Previous website for reference
+context/                  # READ BEFORE BUILDING
+last-site-example/        # Previous site reference
 ```
 
-## Brand Guidelines Summary
+## Design Essentials
 
-From `context/brand-story.md` - critical for any UI work:
-
-- **Visual style**: Generous whitespace, high-quality imagery, minimal text, professional animations
-- **Typography**: Classic, not trendy
-- **Colors**: Warm tones, wood colors, subtle textures
-- **Tone**: Confident, warm, direct, authentically Serbian
-- **Trust signals**: "Est. 1996" badge, experience counter, real project photos (not stock)
-- **Quality focus**: Let the work speak - large images, every word earns its place
+- Generous whitespace, large imagery, minimal text
+- Classic typography, warm wood tones
+- "Est. 1996" and "28+ years" as trust anchors
+- Let the work speak - photos over words
