@@ -1,32 +1,36 @@
+/* Import Google Fonts - Professional Typography */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @import "tailwindcss";
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap');
-
 @theme {
-  /* Color Palette - Olimp Brand */
-  --color-background: #F7F3EE;
-  --color-surface: #EDE6DD;
-  --color-text-primary: #1A1A1A;
-  --color-text-secondary: #6B5D50;
+  /* Refined Color Palette - Olimp Brand */
+  --color-background: #FAF8F5;
+  --color-surface: #F0EBE3;
+  --color-text-primary: #2C2520;
+  --color-text-secondary: #7A6B5D;
   --color-accent: #B5573A;
   --color-accent-hover: #9A4830;
+  --color-accent-light: #D77B5F;
   --color-white: #FFFFFF;
+  --color-wood-dark: #4A3F35;
+  --color-wood-medium: #8B7355;
 
-  /* Typography */
-  --font-family-serif: 'Playfair Display', serif;
-  --font-family-sans: 'Source Sans 3', sans-serif;
+  /* Typography - More Elegant */
+  --font-family-serif: 'Cormorant Garamond', serif;
+  --font-family-sans: 'Inter', sans-serif;
 
-  /* Custom Spacing for Generous Whitespace - INCREASED */
-  --spacing-section: 10rem;
-  --spacing-section-mobile: 5rem;
+  /* Generous Whitespace - DRAMATICALLY INCREASED */
+  --spacing-section: 20rem;
+  --spacing-section-mobile: 10rem;
 
-  /* Transition Timing */
+  /* Refined Transition Timing */
   --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-elegant: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Base Styles */
+/* Base Styles - Enhanced */
 * {
   margin: 0;
   padding: 0;
@@ -36,27 +40,50 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
   font-family: var(--font-family-sans);
   color: var(--color-text-primary);
   background-color: var(--color-background);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
-/* Typography Scale */
+/* Enhanced Typography Scale */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-serif);
   line-height: 1.2;
   font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
-/* Smooth Transitions */
+h1 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+/* Smooth Transitions with Subtle Delays */
 a, button {
-  transition: all 0.3s var(--transition-smooth);
+  transition: all 0.35s var(--transition-elegant);
+}
+
+a:hover, button:hover {
+  transform: translateY(-1px);
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
 }
 
 /* Focus Styles for Accessibility - High Visibility */
@@ -81,11 +108,11 @@ select:focus-visible {
   box-shadow: 0 0 0 3px rgba(181, 87, 58, 0.2);
 }
 
-/* Custom Animations */
+/* Professional Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -105,7 +132,7 @@ select:focus-visible {
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.92);
   }
   to {
     opacity: 1;
@@ -113,16 +140,68 @@ select:focus-visible {
   }
 }
 
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s var(--transition-smooth) forwards;
+  animation: fadeInUp 0.8s var(--transition-elegant) forwards;
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.8s var(--transition-smooth) forwards;
+  animation: fadeIn 1s var(--transition-elegant) forwards;
 }
 
 .animate-scale-in {
-  animation: scaleIn 0.5s var(--transition-smooth) forwards;
+  animation: scaleIn 0.7s var(--transition-elegant) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s var(--transition-elegant) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s var(--transition-elegant) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
 /* Scroll-triggered animations */
@@ -160,9 +239,9 @@ select:focus-visible {
 .stagger-children.is-visible > *:nth-child(5) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
 .stagger-children.is-visible > *:nth-child(6) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
 
-/* Logo Animation Classes */
+/* Enhanced Logo Animation */
 .logo-part {
-  transition: all 0.5s var(--transition-smooth);
+  transition: all 0.6s var(--transition-elegant);
 }
 
 .logo-decorative {
@@ -180,14 +259,22 @@ select:focus-visible {
 }
 
 .logo-container:hover .logo-letters {
-  transform: scale(0.85);
+  transform: scale(0.88);
 }
 
-/* Frosted Glass Effect */
+.logo-container:focus .logo-decorative {
+  max-height: 60px;
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* Professional Frosted Glass Effect */
 .frosted-glass {
-  background: rgba(247, 243, 238, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(250, 248, 245, 0.85);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 /* Image Hover Effects */
@@ -225,9 +312,9 @@ select:focus-visible {
   width: 100%;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Enhanced */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -236,9 +323,104 @@ select:focus-visible {
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-text-secondary);
-  border-radius: 5px;
+  border-radius: 6px;
+  border: 3px solid var(--color-background);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent);
+}
+
+/* Professional Button Styles */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--color-accent-hover);
+  transition: width 0.4s var(--transition-elegant);
+  z-index: -1;
+}
+
+.btn-primary:hover::before {
+  width: 100%;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 0.4s var(--transition-elegant);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Gradient Overlays */
+.gradient-overlay-dark {
+  background: linear-gradient(to bottom,
+    rgba(44, 37, 32, 0.3) 0%,
+    rgba(44, 37, 32, 0.6) 50%,
+    rgba(44, 37, 32, 0.8) 100%);
+}
+
+.gradient-overlay-light {
+  background: linear-gradient(to right,
+    rgba(250, 248, 245, 0.95) 0%,
+    rgba(250, 248, 245, 0.7) 50%,
+    rgba(250, 248, 245, 0) 100%);
+}
+
+/* Text Shine Effect */
+.text-shine {
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    var(--color-accent-light) 50%,
+    var(--color-accent) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Parallax Container */
+.parallax-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Loading Skeleton */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 25%,
+    var(--color-background) 50%,
+    var(--color-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
 }

@@ -109,22 +109,27 @@ function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="py-[var(--spacing-section-mobile)] lg:py-[var(--spacing-section)] bg-[var(--color-surface)]"
+      className="py-[var(--spacing-section-mobile)] lg:py-[var(--spacing-section)] bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-background)] relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section Header */}
+      {/* Decorative background */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-[var(--color-accent)] rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Section Header - Enhanced */}
         <div
-          className={`text-center mb-16 lg:mb-20 transition-all duration-1000 ${
+          className={`text-center mb-20 lg:mb-28 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <span className="inline-block text-[var(--color-accent)] text-sm font-semibold tracking-widest uppercase mb-4">
+          <span className="inline-block text-[var(--color-accent)] text-sm font-bold tracking-widest uppercase mb-6">
             Kontakt
           </span>
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--color-text-primary)] mb-6 tracking-tight">
+          <h2 className="text-6xl lg:text-7xl xl:text-8xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight">
             Razgovarajmo
           </h2>
-          <p className="text-lg lg:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-2xl lg:text-3xl text-[var(--color-text-secondary)] max-w-3xl mx-auto leading-relaxed font-light">
             Rado ćemo odgovoriti na sva vaša pitanja
           </p>
         </div>
@@ -136,22 +141,27 @@ function Contact() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <div className="bg-[var(--color-background)] p-8 lg:p-12">
-              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-8">
+            <div className="bg-white p-10 lg:p-14 shadow-xl border-2 border-[var(--color-text-secondary)]/10">
+              <h3 className="text-3xl lg:text-4xl font-bold text-[var(--color-text-primary)] mb-10 font-serif">
                 Pošaljite upit
               </h3>
 
               {submitMessage && (
-                <div className="mb-8 p-4 bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30 text-[var(--color-accent)] rounded font-medium">
+                <div className="mb-10 p-6 bg-green-50 border-2 border-green-300 text-green-800 rounded-sm font-semibold flex items-center gap-4 shadow-md animate-fade-in text-lg">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
+                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
                   {submitMessage}
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <label htmlFor="name" className="block text-[var(--color-text-primary)] font-medium mb-2 text-sm">
-                      Ime i prezime
+                    <label htmlFor="name" className="block text-[var(--color-text-primary)] font-semibold mb-3 text-base">
+                      Ime i prezime <span className="text-[var(--color-accent)]">*</span>
                     </label>
                     <input
                       type="text"
@@ -160,13 +170,13 @@ function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white border border-[var(--color-text-secondary)]/20 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-colors outline-none"
+                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg"
                       placeholder="Vaše ime"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-[var(--color-text-primary)] font-medium mb-2 text-sm">
-                      Email
+                    <label htmlFor="email" className="block text-[var(--color-text-primary)] font-semibold mb-3 text-base">
+                      Email <span className="text-[var(--color-accent)]">*</span>
                     </label>
                     <input
                       type="email"
@@ -175,15 +185,15 @@ function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white border border-[var(--color-text-secondary)]/20 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-colors outline-none"
+                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg"
                       placeholder="vas@email.com"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <label htmlFor="phone" className="block text-[var(--color-text-primary)] font-medium mb-2 text-sm">
+                    <label htmlFor="phone" className="block text-[var(--color-text-primary)] font-semibold mb-3 text-base">
                       Telefon
                     </label>
                     <input
@@ -192,12 +202,12 @@ function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white border border-[var(--color-text-secondary)]/20 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-colors outline-none"
+                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg"
                       placeholder="+381 11 123 4567"
                     />
                   </div>
                   <div>
-                    <label htmlFor="projectType" className="block text-[var(--color-text-primary)] font-medium mb-2 text-sm">
+                    <label htmlFor="projectType" className="block text-[var(--color-text-primary)] font-semibold mb-3 text-base">
                       Tip projekta
                     </label>
                     <select
@@ -205,7 +215,7 @@ function Contact() {
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white border border-[var(--color-text-secondary)]/20 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-colors outline-none"
+                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg"
                     >
                       <option value="">Izaberite...</option>
                       <option value="kuhinja">Kuhinja</option>
@@ -220,8 +230,8 @@ function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-[var(--color-text-primary)] font-medium mb-2 text-sm">
-                    Poruka
+                  <label htmlFor="message" className="block text-[var(--color-text-primary)] font-semibold mb-3 text-base">
+                    Poruka <span className="text-[var(--color-accent)]">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -229,8 +239,8 @@ function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows="5"
-                    className="w-full px-4 py-3 bg-white border border-[var(--color-text-secondary)]/20 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-colors outline-none resize-none"
+                    rows="6"
+                    className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none resize-none text-lg"
                     placeholder="Opišite vaš projekat..."
                   ></textarea>
                 </div>
@@ -238,9 +248,27 @@ function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-8 py-4 bg-[var(--color-accent)] text-white font-semibold hover:bg-[var(--color-accent-hover)] transition-all duration-300 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="group relative w-full px-10 py-6 bg-[var(--color-accent)] text-white font-bold text-xl hover:bg-[var(--color-accent-hover)] transition-all duration-400 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl overflow-hidden rounded-sm"
                 >
-                  {isSubmitting ? 'Slanje...' : 'Pošalji upit'}
+                  <span className="relative z-10 flex items-center justify-center gap-3">
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin w-6 h-6" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Slanje...
+                      </>
+                    ) : (
+                      <>
+                        Pošalji upit
+                        <svg className="w-6 h-6 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </>
+                    )}
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent-hover)] to-[var(--color-accent)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
                 </button>
               </form>
             </div>
@@ -252,45 +280,52 @@ function Contact() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-8">
-              Informacije
-            </h3>
+            <div className="bg-white p-10 lg:p-12 shadow-xl border-2 border-[var(--color-text-secondary)]/10 h-full flex flex-col">
+              <h3 className="text-3xl lg:text-4xl font-bold text-[var(--color-text-primary)] mb-10 font-serif">
+                Informacije
+              </h3>
 
-            <div className="space-y-8 mb-12">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="flex-shrink-0 text-[var(--color-accent)]">
-                    {info.icon}
+              <div className="space-y-10 mb-14 flex-1">
+                {contactInfo.map((info, index) => (
+                  <div key={index} className="flex items-start gap-5 group">
+                    <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white transition-all duration-400">
+                      {info.icon}
+                    </div>
+                    <div>
+                      <p className="font-bold text-[var(--color-text-primary)] mb-2 text-lg">
+                        {info.label}
+                      </p>
+                      {info.link ? (
+                        <a
+                          href={info.link}
+                          className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors text-lg font-medium"
+                        >
+                          {info.value}
+                        </a>
+                      ) : (
+                        <p className="text-[var(--color-text-secondary)] text-lg">{info.value}</p>
+                      )}
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-medium text-[var(--color-text-primary)] mb-1">
-                      {info.label}
-                    </p>
-                    {info.link ? (
-                      <a
-                        href={info.link}
-                        className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
-                      >
-                        {info.value}
-                      </a>
-                    ) : (
-                      <p className="text-[var(--color-text-secondary)]">{info.value}</p>
-                    )}
+                ))}
+              </div>
+
+              {/* Map Placeholder */}
+              <div className="bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-background)] h-72 flex items-center justify-center border-2 border-[var(--color-text-secondary)]/10 shadow-inner">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[var(--color-accent)]/10 mb-5">
+                    <svg className="w-10 h-10 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
                   </div>
+                  <p className="text-[var(--color-text-primary)] font-bold text-xl mb-2">
+                    Beograd, Srbija
+                  </p>
+                  <p className="text-[var(--color-text-secondary)] text-sm">
+                    Dostupni smo za projekte širom Srbije
+                  </p>
                 </div>
-              ))}
-            </div>
-
-            {/* Map Placeholder */}
-            <div className="bg-[var(--color-background)] h-64 flex items-center justify-center border border-[var(--color-text-secondary)]/10">
-              <div className="text-center">
-                <svg className="w-12 h-12 mx-auto mb-3 text-[var(--color-accent)]/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                <p className="text-[var(--color-text-secondary)] font-medium">
-                  Beograd, Srbija
-                </p>
               </div>
             </div>
           </div>

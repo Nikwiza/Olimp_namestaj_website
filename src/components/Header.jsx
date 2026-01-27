@@ -46,12 +46,12 @@ function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'frosted-glass shadow-lg' : 'lg:bg-transparent bg-[var(--color-background)]/90 backdrop-blur-sm'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
+        isScrolled ? 'frosted-glass shadow-2xl' : 'lg:bg-transparent bg-[var(--color-background)]/90 backdrop-blur-md'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+        <div className="flex items-center justify-between h-20 lg:h-28">
           {/* Logo with Badge */}
           <div className="flex items-center gap-3">
             <button
@@ -75,9 +75,9 @@ function Header() {
                 className="logo-part logo-decorative w-16 lg:w-20"
               />
             </button>
-            <div className="hidden lg:block text-[var(--color-text-secondary)] text-xs font-medium border-l border-[var(--color-text-secondary)]/30 pl-3">
-              <div className="text-[var(--color-accent)] font-semibold">Od 1996.</div>
-              <div className="whitespace-nowrap">28+ godina</div>
+            <div className="flex flex-col text-[var(--color-text-secondary)] text-xs font-medium border-l-2 border-[var(--color-accent)]/30 pl-4">
+              <div className="text-[var(--color-accent)] font-bold text-base lg:text-lg tracking-wider">Od 1996.</div>
+              <div className="whitespace-nowrap font-semibold text-sm">28+ godina</div>
             </div>
           </div>
 
@@ -91,7 +91,7 @@ function Header() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="nav-link text-[var(--color-text-primary)] hover:text-[var(--color-accent)] font-medium text-base lg:text-lg"
+                className="nav-link text-[var(--color-text-primary)] hover:text-[var(--color-accent)] font-semibold text-base lg:text-lg tracking-wide transition-all duration-300"
               >
                 {item.label}
               </button>
