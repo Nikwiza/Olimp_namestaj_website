@@ -50,34 +50,34 @@ function Header() {
         isScrolled ? 'frosted-glass shadow-2xl' : 'lg:bg-transparent bg-[var(--color-background)]/90 backdrop-blur-md'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 lg:h-28">
-          {/* Logo with Badge */}
-          <div className="flex items-center gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20 lg:h-24">
+          {/* Logo with Badge - IMPROVED */}
+          <div className="flex items-center gap-4">
             <button
               onClick={() => scrollToSection('hero')}
-              className="logo-container flex flex-col items-center gap-0 focus:outline-none group"
+              className="logo-container flex flex-col items-center gap-0 focus:outline-none group transition-all duration-300 hover:scale-105"
               aria-label="Olimp logo - povratak na početnu"
             >
               <img
                 src={logoTop}
                 alt=""
-                className="logo-part logo-decorative w-16 lg:w-20"
+                className="logo-part logo-decorative w-14 lg:w-20 transition-all duration-500"
               />
               <img
                 src={logoLetters}
                 alt="Olimp"
-                className="logo-part logo-letters w-16 lg:w-20"
+                className="logo-part logo-letters w-14 lg:w-20 transition-all duration-500"
               />
               <img
                 src={logoBottom}
                 alt=""
-                className="logo-part logo-decorative w-16 lg:w-20"
+                className="logo-part logo-decorative w-14 lg:w-20 transition-all duration-500"
               />
             </button>
-            <div className="flex flex-col text-[var(--color-text-secondary)] text-xs font-medium border-l-2 border-[var(--color-accent)]/30 pl-4">
-              <div className="text-[var(--color-accent)] font-bold text-base lg:text-lg tracking-wider">Od 1996.</div>
-              <div className="whitespace-nowrap font-semibold text-sm">28+ godina</div>
+            <div className="hidden sm:flex flex-col text-[var(--color-text-secondary)] text-xs font-medium border-l-2 border-[var(--color-accent)]/40 pl-4">
+              <div className="text-[var(--color-accent)] font-bold text-sm lg:text-base tracking-wider">Est. 1996</div>
+              <div className="whitespace-nowrap font-semibold text-xs lg:text-sm">28+ godina</div>
             </div>
           </div>
 

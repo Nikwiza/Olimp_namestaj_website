@@ -96,7 +96,7 @@ function About() {
         <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-[var(--color-accent)] rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Company Story - Enhanced */}
         <div
           className={`max-w-4xl mx-auto text-center mb-24 lg:mb-32 transition-all duration-1000 ${

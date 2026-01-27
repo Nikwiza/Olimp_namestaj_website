@@ -13,15 +13,18 @@ function TrustBar() {
           setIsVisible(true);
           hasAnimated.current = true;
 
-          // Animated counter effect
+          // Animated counter effect - NITPICK FIX: cubic-bezier easing
           const duration = 2000; // 2 seconds
           const steps = 60;
           const stepDuration = duration / steps;
 
+          // Cubic-bezier easing function (ease-out)
+          const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
           let currentStep = 0;
           const interval = setInterval(() => {
             currentStep++;
-            const progress = currentStep / steps;
+            const progress = easeOutCubic(currentStep / steps);
 
             setCounts({
               years: Math.floor(28 * progress),
@@ -96,7 +99,7 @@ function TrustBar() {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[var(--color-accent)] rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
           {stats.map((stat, index) => (
             <div

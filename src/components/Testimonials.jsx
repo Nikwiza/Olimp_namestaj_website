@@ -60,7 +60,7 @@ function Testimonials() {
         <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-[var(--color-accent)] rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
           className={`text-center mb-20 lg:mb-28 transition-all duration-1000 ${
@@ -78,8 +78,8 @@ function Testimonials() {
           </p>
         </div>
 
-        {/* Testimonials Grid - Enhanced Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+        {/* Testimonials Grid - Enhanced Cards - MEDIUM-PRIORITY FIX: More mobile spacing */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
           {testimonials.map((testimonial, index) => (
             <article
               key={testimonial.id}

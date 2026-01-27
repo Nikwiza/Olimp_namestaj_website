@@ -26,7 +26,7 @@ function Footer() {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[var(--color-accent)] rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
           {/* Logo & Tagline */}
           <div>
@@ -49,9 +49,9 @@ function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links - NITPICK FIX: Professional tone */}
           <div>
-            <h3 className="text-2xl font-bold mb-6 font-serif">Brze veze</h3>
+            <h3 className="text-2xl font-bold mb-6 font-serif">Navigacija</h3>
             <nav className="space-y-4">
               {navLinks.map((link) => (
                 <button

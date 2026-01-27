@@ -116,7 +116,7 @@ function Contact() {
         <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-[var(--color-accent)] rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Enhanced */}
         <div
           className={`text-center mb-20 lg:mb-28 transition-all duration-1000 ${
@@ -141,13 +141,13 @@ function Contact() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <div className="bg-white p-10 lg:p-14 shadow-xl border-2 border-[var(--color-text-secondary)]/10">
+            <div className="bg-white p-10 lg:p-14 shadow-xl border-2 border-[var(--color-text-secondary)]/10 rounded-none">
               <h3 className="text-3xl lg:text-4xl font-bold text-[var(--color-text-primary)] mb-10 font-serif">
                 Pošaljite upit
               </h3>
 
               {submitMessage && (
-                <div className="mb-10 p-6 bg-green-50 border-2 border-green-300 text-green-800 rounded-sm font-semibold flex items-center gap-4 shadow-md animate-fade-in text-lg">
+                <div className="mb-10 p-6 bg-green-50 border-2 border-green-300 text-green-800 rounded-none font-semibold flex items-center gap-4 shadow-md animate-fade-in text-lg">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
                     <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
@@ -170,7 +170,7 @@ function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg"
+                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
                       placeholder="Vaše ime"
                     />
                   </div>
@@ -185,7 +185,7 @@ function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg"
+                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
                       placeholder="vas@email.com"
                     />
                   </div>
@@ -202,7 +202,7 @@ function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg"
+                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
                       placeholder="+381 11 123 4567"
                     />
                   </div>
@@ -215,7 +215,7 @@ function Contact() {
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleChange}
-                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg"
+                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
                     >
                       <option value="">Izaberite...</option>
                       <option value="kuhinja">Kuhinja</option>
@@ -240,7 +240,7 @@ function Contact() {
                     onChange={handleChange}
                     required
                     rows="6"
-                    className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none resize-none text-lg"
+                    className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none resize-none text-lg rounded-none"
                     placeholder="Opišite vaš projekat..."
                   ></textarea>
                 </div>
@@ -248,7 +248,7 @@ function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group relative w-full px-10 py-6 bg-[var(--color-accent)] text-white font-bold text-xl hover:bg-[var(--color-accent-hover)] transition-all duration-400 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl overflow-hidden rounded-sm"
+                  className="btn-primary group relative w-full px-10 py-6 bg-[var(--color-accent)] text-white font-bold text-xl hover:bg-[var(--color-accent-hover)] transition-all duration-400 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl overflow-hidden rounded-none hover:-translate-y-1"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-3">
                     {isSubmitting ? (
@@ -280,7 +280,7 @@ function Contact() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <div className="bg-white p-10 lg:p-12 shadow-xl border-2 border-[var(--color-text-secondary)]/10 h-full flex flex-col">
+            <div className="bg-white p-10 lg:p-12 shadow-xl border-2 border-[var(--color-text-secondary)]/10 h-full flex flex-col rounded-none">
               <h3 className="text-3xl lg:text-4xl font-bold text-[var(--color-text-primary)] mb-10 font-serif">
                 Informacije
               </h3>
@@ -311,7 +311,7 @@ function Contact() {
               </div>
 
               {/* Map Placeholder */}
-              <div className="bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-background)] h-72 flex items-center justify-center border-2 border-[var(--color-text-secondary)]/10 shadow-inner">
+              <div className="bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-background)] h-72 flex items-center justify-center border-2 border-[var(--color-text-secondary)]/10 shadow-inner rounded-none">
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[var(--color-accent)]/10 mb-5">
                     <svg className="w-10 h-10 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
