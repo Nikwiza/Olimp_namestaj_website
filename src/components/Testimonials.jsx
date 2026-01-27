@@ -1,4 +1,27 @@
+import { useEffect, useRef, useState } from 'react';
+
 function Testimonials() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const testimonials = [
     {
       id: 1,
@@ -9,14 +32,14 @@ function Testimonials() {
     },
     {
       id: 2,
-      quote: 'Profesionalnost i posvećenost tima su nas oduševili. Od prvog sastanka do finalne montaže, sve je teklo glatko. Preporuka svima koji traže kvalitet i pouzdanost.',
+      quote: 'Profesionalnost i posvećenost tima su nas oduševili. Od prvog sastanka do finalne montaže, sve je teklo glatko. Preporuka svima koji traže kvalitet.',
       name: 'Petar Nikolić',
       project: 'Kompletno opremanje stana',
       location: 'Novi Sad'
     },
     {
       id: 3,
-      quote: 'Radili smo sa više stolarskih radnji, ali Olimp je poseban. Njihovo iskustvo se vidi u svakom savjetu i rešenju. Četvrti smo put da naručujemo nameštaj kod njih.',
+      quote: 'Radili smo sa više stolarskih radnji, ali Olimp je poseban. Njihovo iskustvo se vidi u svakom savjetu. Četvrti smo put da naručujemo nameštaj kod njih.',
       name: 'Jelena Đorđević',
       project: 'Spavaća soba i garderober',
       location: 'Kragujevac'
@@ -24,61 +47,79 @@ function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-[var(--spacing-section-mobile)] lg:py-[var(--spacing-section)] bg-[var(--color-background)]">
+    <section
+      id="testimonials"
+      ref={sectionRef}
+      className="py-[var(--spacing-section-mobile)] lg:py-[var(--spacing-section)] bg-[var(--color-background)]"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[var(--color-text-primary)] mb-6">
-            Utisci klijenata
+        <div
+          className={`text-center mb-16 lg:mb-20 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <span className="inline-block text-[var(--color-accent)] text-sm font-semibold tracking-widest uppercase mb-4">
+            Utisci
+          </span>
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--color-text-primary)] mb-6 tracking-tight">
+            Šta kažu klijenti
           </h2>
-          <div className="w-24 h-1 bg-[var(--color-accent)] mx-auto mb-8"></div>
-          <p className="text-lg lg:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto">
-            Naši klijenti postaju naši prijatelji. Evo šta kažu o saradnji sa nama.
+          <p className="text-lg lg:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed">
+            Naši klijenti postaju naši prijatelji
           </p>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
           {testimonials.map((testimonial, index) => (
             <article
               key={testimonial.id}
-              className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`relative p-8 lg:p-10 bg-[var(--color-surface)] transition-all duration-700 ${
+                isVisible
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-12'
+              }`}
+              style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
-              <blockquote>
-                {/* Quote Icon */}
-                <div className="text-5xl text-[var(--color-accent)] mb-4 leading-none" aria-hidden="true">&ldquo;</div>
+              {/* Quote Icon */}
+              <div className="text-6xl text-[var(--color-accent)]/20 font-serif leading-none mb-6">
+                &ldquo;
+              </div>
 
-                {/* Quote Text */}
-                <p className="text-[var(--color-text-secondary)] text-base lg:text-lg leading-relaxed mb-6 italic">
+              {/* Quote Text */}
+              <blockquote className="mb-8">
+                <p className="text-[var(--color-text-secondary)] text-base lg:text-lg leading-relaxed">
                   {testimonial.quote}
                 </p>
-
-                {/* Author Info */}
-                <footer className="border-t border-[var(--color-text-secondary)]/20 pt-4">
-                  <cite className="not-italic">
-                    <p className="font-semibold text-[var(--color-text-primary)] text-lg mb-1">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-[var(--color-text-secondary)] text-sm">
-                      {testimonial.project}
-                    </p>
-                    <p className="text-[var(--color-accent)] text-sm mt-1">
-                      {testimonial.location}
-                    </p>
-                  </cite>
-                </footer>
               </blockquote>
+
+              {/* Author Info */}
+              <footer className="pt-6 border-t border-[var(--color-text-secondary)]/10">
+                <p className="font-semibold text-[var(--color-text-primary)] text-lg mb-1">
+                  {testimonial.name}
+                </p>
+                <p className="text-[var(--color-text-secondary)] text-sm">
+                  {testimonial.project}
+                </p>
+                <p className="text-[var(--color-accent)] text-sm mt-1 font-medium">
+                  {testimonial.location}
+                </p>
+              </footer>
             </article>
           ))}
         </div>
 
         {/* Trust Signal */}
-        <div className="mt-16 text-center">
-          <p className="text-xl lg:text-2xl text-[var(--color-text-primary)] font-semibold mb-2">
+        <div
+          className={`mt-20 text-center transition-all duration-1000 delay-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <p className="text-xl lg:text-2xl text-[var(--color-text-primary)] font-semibold mb-3">
             Porodice koje se vraćaju generacijama
           </p>
-          <p className="text-lg text-[var(--color-text-secondary)]">
+          <p className="text-base lg:text-lg text-[var(--color-text-secondary)]">
             Najveće priznanje je kada nam se klijenti ponovo javljaju
           </p>
         </div>

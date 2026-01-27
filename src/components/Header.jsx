@@ -47,7 +47,7 @@ function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'frosted-glass shadow-lg' : 'bg-transparent'
+        isScrolled ? 'frosted-glass shadow-lg' : 'lg:bg-transparent bg-[var(--color-background)]/90 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -81,8 +81,12 @@ function Header() {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-12" aria-label="Glavna navigacija">
+          {/* Desktop Navigation - hidden on mobile */}
+          <nav
+            className="items-center gap-8 lg:gap-12"
+            aria-label="Glavna navigacija"
+            style={{ display: 'none' }}
+          >
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -93,53 +97,110 @@ function Header() {
               </button>
             ))}
           </nav>
+          {/* Desktop nav shown via CSS media query */}
+          <style>{`
+            @media (min-width: 768px) {
+              nav[aria-label="Glavna navigacija"] { display: flex !important; }
+              .mobile-menu-btn { display: none !important; }
+            }
+          `}</style>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center focus:outline-none"
-            aria-label="Meni"
+            className="mobile-menu-btn"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '44px',
+              height: '44px',
+              padding: '8px',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              gap: '5px'
+            }}
+            aria-label="Otvori meni"
             aria-expanded={isMobileMenuOpen}
           >
             <span
-              className={`w-6 h-0.5 bg-[var(--color-text-primary)] transition-transform duration-300 ${
-                isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
-              }`}
-            ></span>
+              style={{
+                display: 'block',
+                width: '24px',
+                height: '3px',
+                backgroundColor: '#1A1A1A',
+                borderRadius: '2px',
+                transition: 'transform 0.3s ease',
+                transform: isMobileMenuOpen ? 'rotate(45deg) translateY(8px)' : 'none'
+              }}
+            />
             <span
-              className={`w-6 h-0.5 bg-[var(--color-text-primary)] transition-opacity duration-300 ${
-                isMobileMenuOpen ? 'opacity-0' : ''
-              }`}
-            ></span>
+              style={{
+                display: 'block',
+                width: '24px',
+                height: '3px',
+                backgroundColor: '#1A1A1A',
+                borderRadius: '2px',
+                transition: 'opacity 0.3s ease',
+                opacity: isMobileMenuOpen ? 0 : 1
+              }}
+            />
             <span
-              className={`w-6 h-0.5 bg-[var(--color-text-primary)] transition-transform duration-300 ${
-                isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
-              }`}
-            ></span>
+              style={{
+                display: 'block',
+                width: '24px',
+                height: '3px',
+                backgroundColor: '#1A1A1A',
+                borderRadius: '2px',
+                transition: 'transform 0.3s ease',
+                transform: isMobileMenuOpen ? 'rotate(-45deg) translateY(-8px)' : 'none'
+              }}
+            />
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}
+        className="mobile-menu-container transition-all duration-300 overflow-hidden"
+        style={{
+          maxHeight: isMobileMenuOpen ? '400px' : '0',
+          opacity: isMobileMenuOpen ? 1 : 0
+        }}
         aria-hidden={!isMobileMenuOpen}
       >
-        <nav className="frosted-glass border-t border-[var(--color-text-secondary)]/20 px-6 py-6 flex flex-col gap-4">
+        <nav
+          className="frosted-glass border-t border-[var(--color-text-secondary)]/20"
+          style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}
+        >
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               tabIndex={isMobileMenuOpen ? 0 : -1}
-              className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] font-medium text-lg text-left transition-colors"
+              className="hover:text-[var(--color-accent)] transition-colors"
+              style={{
+                color: '#1A1A1A',
+                fontWeight: 500,
+                fontSize: '18px',
+                textAlign: 'left',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer'
+              }}
             >
               {item.label}
             </button>
           ))}
         </nav>
       </div>
+      <style>{`
+        @media (min-width: 768px) {
+          .mobile-menu-container { display: none !important; }
+        }
+      `}</style>
     </header>
   );
 }
