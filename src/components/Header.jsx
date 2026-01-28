@@ -90,7 +90,7 @@ function Header() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="nav-link px-6 py-3 text-[var(--color-text-primary)] hover:text-[var(--color-accent)] hover:bg-[var(--color-accent)]/5 font-semibold text-base lg:text-lg tracking-wide transition-all duration-300 rounded-sm hover:scale-105"
+                className="nav-link px-4 py-2 text-[var(--color-text-primary)] hover:text-[var(--color-accent)]  font-semibold text-base tracking-wide transition-all duration-300 rounded-sm hover:scale-105"
               >
                 {item.label}
               </button>

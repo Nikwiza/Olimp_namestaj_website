@@ -128,6 +128,7 @@ The loop continues until design-review-agent scores ≥ 9/10 or max iterations (
 - Warm wood tones and classic typography are brand essentials
 - **Every button MUST have explicit padding** (px-6 py-3 minimum), a hover effect (hover:bg-*, hover:shadow-*, or hover:scale-*), proper font weight, and consistent border-radius across the site. Never leave buttons unstyled.
 - **Section headings (h2) should use large font sizes** (text-4xl lg:text-5xl minimum) with proper font weight to command visual hierarchy.
+- **CRITICAL: NEVER add global CSS resets to index.css** - TailwindCSS 4 already includes a modern preflight reset. Adding `* { margin: 0; padding: 0; box-sizing: border-box; }` or similar universal selector resets will BREAK all Tailwind utilities. If you need custom base styles, use @layer base or target specific elements.
 
 ### File Organization
 - Place new components in logical locations within `src/`
@@ -162,8 +163,9 @@ Always embody these principles in your code:
 4. **Write clean code** - Implement with comments explaining non-obvious decisions
 5. **Ensure dev server is running** - Use `npm run dev` in /home/nikwiza/Projects/Olimp_2/olimp-project if needed
 6. **Verify CSS compilation** - Check dev server output to ensure TailwindCSS is building correctly
-7. **Self-review** - Check your code against brand principles before presenting
-8. **End with clear handoff** - Always state "Ready for design review" so the orchestrator can trigger design-review-agent
+7. **CRITICAL CSS CHECK** - NEVER add global CSS resets like `* { margin: 0; padding: 0; box-sizing: border-box; }` to index.css. TailwindCSS 4 handles this. If index.css contains such resets, REMOVE them immediately.
+8. **Self-review** - Check your code against brand principles before presenting
+9. **End with clear handoff** - Always state "Ready for design review" so the orchestrator can trigger design-review-agent
 
 ## Quality Assurance Checklist
 

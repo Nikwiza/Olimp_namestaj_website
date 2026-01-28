@@ -20,9 +20,9 @@
   --font-family-serif: 'Cormorant Garamond', serif;
   --font-family-sans: 'Inter', sans-serif;
 
-  /* Generous Whitespace - MAXIMUM SPACING */
-  --spacing-section: 10rem;
-  --spacing-section-mobile: 6rem;
+  /* Generous Whitespace - Balanced professional spacing */
+  --spacing-section: 5rem;
+  --spacing-section-mobile: 3rem;
 
   /* Refined Transition Timing */
   --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
@@ -31,12 +31,7 @@
 }
 
 /* Base Styles - Enhanced */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* NOTE: TailwindCSS 4 includes its own preflight reset - do NOT add global * resets */
 html {
   scroll-behavior: smooth;
   font-size: 16px;

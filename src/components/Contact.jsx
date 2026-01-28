@@ -119,17 +119,17 @@ function Contact() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Enhanced */}
         <div
-          className={`text-center mb-20 lg:mb-28 transition-all duration-1000 ${
+          className={`text-center mb-28 lg:mb-36 max-w-4xl mx-auto transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <span className="inline-block text-[var(--color-accent)] text-sm font-bold tracking-widest uppercase mb-6">
             Kontakt
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight font-serif">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight font-serif">
             Razgovarajmo
           </h2>
-          <p className="text-2xl lg:text-3xl text-[var(--color-text-secondary)] max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-xl lg:text-2xl text-[var(--color-text-secondary)] max-w-3xl mx-auto leading-relaxed font-light">
             Rado ćemo odgovoriti na sva vaša pitanja
           </p>
         </div>
@@ -141,7 +141,7 @@ function Contact() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <div className="bg-white p-10 lg:p-14 shadow-xl border-2 border-[var(--color-text-secondary)]/10 rounded-none">
+            <div className="bg-white p-8 lg:p-10 shadow-xl border-2 border-[var(--color-text-secondary)]/10 rounded-none">
               <h3 className="text-3xl lg:text-4xl font-bold text-[var(--color-text-primary)] mb-10 font-serif">
                 Pošaljite upit
               </h3>
@@ -157,8 +157,8 @@ function Contact() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-[var(--color-text-primary)] font-semibold mb-3 text-base">
                       Ime i prezime <span className="text-[var(--color-accent)]">*</span>
@@ -170,7 +170,7 @@ function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
+                      className="w-full px-4 py-3 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
                       placeholder="Vaše ime"
                     />
                   </div>
@@ -185,13 +185,13 @@ function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
+                      className="w-full px-4 py-3 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
                       placeholder="vas@email.com"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-[var(--color-text-primary)] font-semibold mb-3 text-base">
                       Telefon
@@ -202,7 +202,7 @@ function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
+                      className="w-full px-4 py-3 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
                       placeholder="+381 11 123 4567"
                     />
                   </div>
@@ -215,7 +215,7 @@ function Contact() {
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleChange}
-                      className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
+                      className="w-full px-4 py-3 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
                     >
                       <option value="">Izaberite...</option>
                       <option value="kuhinja">Kuhinja</option>
@@ -240,7 +240,7 @@ function Contact() {
                     onChange={handleChange}
                     required
                     rows="6"
-                    className="w-full px-5 py-4 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none resize-none text-lg rounded-none"
+                    className="w-full px-4 py-3 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none resize-none text-lg rounded-none"
                     placeholder="Opišite vaš projekat..."
                   ></textarea>
                 </div>
@@ -280,7 +280,7 @@ function Contact() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <div className="bg-white p-10 lg:p-12 shadow-xl border-2 border-[var(--color-text-secondary)]/10 h-full flex flex-col rounded-none">
+            <div className="bg-white p-8 lg:p-10 shadow-xl border-2 border-[var(--color-text-secondary)]/10 h-full flex flex-col rounded-none">
               <h3 className="text-3xl lg:text-4xl font-bold text-[var(--color-text-primary)] mb-10 font-serif">
                 Informacije
               </h3>

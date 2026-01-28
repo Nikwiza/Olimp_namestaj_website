@@ -84,14 +84,23 @@ Execute a comprehensive design review following these phases:
    - Console shows CSS compilation errors
    - **If auto-fail triggered: Score 1-2, provide feedback about missing/broken CSS, state "SEND TO frontend-developer FOR ITERATION", and STOP the review here**
 
-### Phase 1: Interaction and User Flow
-- Execute the primary user flow following testing notes
-- Test all interactive states (hover, active, focus, disabled)
-- Verify destructive action confirmations
-- Assess perceived performance and responsiveness
-- Click all buttons, links, form inputs to ensure they work
-- **Test ALL togglable UI states**: hamburger menu open/close, modals, dropdowns, accordions, lightboxes. Click to open, verify appearance and that close/exit buttons render correctly (not distorted or misaligned), click to close.
-- **Verify ALL buttons across the entire site** have proper styling: visible padding, hover effects, background color or border, and visual feedback on interaction. Buttons must NOT appear as unstyled text or have zero padding. Every button must have a visible hover state change. This is a common failure - always check.
+### Phase 1: Navigation and Content Discovery
+**CRITICAL:** Review the ENTIRE page, not just what's visible initially.
+
+1. **Scroll through complete page**:
+   - Use `mcp__playwright__browser_evaluate` with `window.scrollTo(0, document.body.scrollHeight)` to scroll to bottom
+   - Take screenshots at top, middle (50%), and bottom scroll positions
+   - Use `mcp__playwright__browser_evaluate` with `window.scrollTo(0, 0)` to return to top
+2. **Navigate all sections**:
+   - Click each navigation link to visit different pages/sections
+   - Wait 2-3 seconds after each navigation for render
+   - Take screenshot of each major section
+   - Use browser back/forward or direct navigation as needed
+3. **Test interactive states**:
+   - Test ALL togglable elements (hamburger menu, modals, dropdowns, lightboxes)
+   - Click to open, verify appearance (especially close/X buttons), then close
+   - Test hover states on buttons and links throughout the page
+   - Verify all buttons have padding, hover effects, and consistent styling
 
 ### Phase 2: Responsiveness Testing
 Test across three critical breakpoints using `mcp__playwright__browser_resize`:
@@ -150,6 +159,7 @@ Check against brand pillars from context files:
 - Verify component reuse over duplication
 - Check for design token usage (no magic numbers)
 - Ensure adherence to established patterns
+- **CRITICAL: Check for global CSS reset anti-pattern** - Use the Read tool to check `/home/nikwiza/Projects/Olimp_2/olimp-project/src/index.css` for `* { margin: 0; padding: 0; box-sizing: border-box; }` or similar universal selector resets. If found, immediately flag as [Blocker] with instruction to remove.
 
 ### Phase 8: Final Console Check
 - Review browser console for errors/warnings
@@ -240,6 +250,7 @@ Immediately score 1-3 if ANY of these conditions are true (and state "SEND TO fr
 5. **Missing core functionality**: Required interactions don't work (buttons don't click, forms don't submit)
 6. **Ignores brand guidelines completely**: Cramped layout with no whitespace, corporate blue/gray aesthetic, or stock imagery used instead of Olimp photos
 7. **Unstyled buttons**: If buttons across the site lack padding, hover effects, or any visual styling (appearing as plain text links or unstyled elements), this is a [High-Priority] issue.
+8. **Global CSS reset override detected**: If you notice TailwindCSS padding/margin utilities are not working correctly, check `/home/nikwiza/Projects/Olimp_2/olimp-project/src/index.css` for a global reset like `* { margin: 0; padding: 0; box-sizing: border-box; }`. This MUST be removed immediately as it breaks TailwindCSS 4's preflight. Flag as [Blocker] and provide explicit instruction to remove it.
 
 **Scoring for auto-fail conditions:**
 - If 1-2 conditions are true: Score 1-2

@@ -63,27 +63,27 @@ function Testimonials() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
-          className={`text-center mb-20 lg:mb-28 transition-all duration-1000 ${
+          className={`text-center mb-28 lg:mb-36 max-w-4xl mx-auto transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <span className="inline-block text-[var(--color-accent)] text-sm font-bold tracking-widest uppercase mb-6">
             Utisci
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight font-serif">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight font-serif">
             Šta kažu klijenti
           </h2>
-          <p className="text-2xl lg:text-3xl text-[var(--color-text-secondary)] max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-xl lg:text-2xl text-[var(--color-text-secondary)] max-w-3xl mx-auto leading-relaxed font-light">
             Naši klijenti postaju naši prijatelji
           </p>
         </div>
 
-        {/* Testimonials Grid - Enhanced Cards - MEDIUM-PRIORITY FIX: More mobile spacing */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
+        {/* Testimonials Grid - Enhanced Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-14">
           {testimonials.map((testimonial, index) => (
             <article
               key={testimonial.id}
-              className={`group relative pt-10 px-12 pb-12 lg:pt-12 lg:px-14 lg:pb-14 bg-white border-2 border-[var(--color-text-secondary)]/10 hover:border-[var(--color-accent)]/40 shadow-xl hover:shadow-2xl transition-all duration-700 card-hover rounded-sm ${
+              className={`group relative p-8 lg:p-10 bg-white border-2 border-[var(--color-text-secondary)]/10 hover:border-[var(--color-accent)]/40 shadow-xl hover:shadow-2xl transition-all duration-700 card-hover rounded-sm ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-16'
@@ -153,7 +153,7 @@ function Testimonials() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="max-w-3xl mx-auto p-12 lg:p-16 bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/10 relative overflow-hidden">
+          <div className="max-w-3xl mx-auto p-10 lg:p-14 bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/10 relative overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent"></div>
             <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent"></div>

@@ -50,29 +50,29 @@ function Hero() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-28 lg:pt-32">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Desktop Layout - Split Screen with Parallax - FIX: Better centering at all breakpoints */}
       <div className="hidden lg:grid lg:grid-cols-2 w-full min-h-screen">
         {/* Left: Content - Properly centered in column */}
-        <div className="flex items-center justify-center px-8 lg:px-12 xl:px-20 2xl:px-32 bg-gradient-to-br from-[var(--color-background)] to-[var(--color-surface)] relative z-10">
-          <div className="max-w-xl w-full">
+        <div className="flex items-center justify-center px-6 lg:px-8 xl:px-12 bg-gradient-to-br from-[var(--color-background)] to-[var(--color-surface)] relative z-10">
+          <div className="max-w-xl w-full pt-28">
             {/* Heritage Badge - EVEN MORE PROMINENT */}
             <div
-              className={`inline-flex items-center gap-3 mb-16 transition-all duration-1000 ${
+              className={`inline-flex items-center gap-3 mb-5 transition-all duration-1000 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <div className="relative flex items-center gap-4 px-10 py-5 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200/40 rounded-full shadow-lg hover:shadow-2xl transition-shadow">
+              <div className="relative flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200/40 rounded-full shadow-lg hover:shadow-2xl transition-shadow">
                 <div className="w-4 h-4 rounded-full bg-amber-600 animate-pulse"></div>
-                <span className="text-amber-900 text-xl font-bold tracking-wider uppercase">
+                <span className="text-amber-900 text-s font-bold tracking-wider uppercase">
                   Od 1996. godine
                 </span>
               </div>
             </div>
 
-            {/* Main Headline - DRAMATICALLY LARGER */}
+            {/* Main Headline */}
             <h1
-              className={`text-6xl xl:text-8xl 2xl:text-9xl font-bold text-[var(--color-text-primary)] mb-10 leading-[1.05] tracking-tight transition-all duration-1000 delay-150 ${
+              className={`text-5xl xl:text-6xl 2xl:text-8xl font-bold text-[var(--color-text-primary)] mb-10 leading-[1.05] tracking-tight transition-all duration-1000 delay-150 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
             >
@@ -88,7 +88,7 @@ function Hero() {
 
             {/* Subheadline */}
             <p
-              className={`text-2xl xl:text-3xl text-[var(--color-text-secondary)] mb-16 leading-relaxed max-w-lg font-light transition-all duration-1000 delay-300 ${
+              className={`text-xl xl:text-2xl text-[var(--color-text-secondary)] mb-16 leading-relaxed max-w-lg font-light transition-all duration-1000 delay-300 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
             >
@@ -103,7 +103,7 @@ function Hero() {
             >
               <button
                 onClick={() => scrollToSection('gallery')}
-                className="btn-primary group relative px-8 py-4 bg-[var(--color-accent)] text-white font-bold text-lg rounded-sm overflow-hidden transition-all duration-400 hover:shadow-2xl hover:-translate-y-2 active:scale-[0.98]"
+                className="btn-primary group relative px-8 py-4 bg-[var(--color-accent)] text-white font-bold text-lg rounded-sm overflow-hidden transition-all duration-400 hover:shadow-2xl hover:-translate-y-1 active:scale-[0.98]"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent-hover)] to-[var(--color-accent)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
                 <span className="relative flex items-center gap-3 z-10">
@@ -227,11 +227,11 @@ function Hero() {
         </div>
 
         {/* Content - Enhanced Mobile with MORE SPACE */}
-        <div className="relative z-20 flex items-center justify-center min-h-screen px-8 py-40">
+        <div className="relative z-20 flex items-center justify-center min-h-screen px-6 py-40">
           <div className="max-w-xl text-center">
             {/* Heritage Badge - LARGER */}
             <div
-              className={`inline-flex items-center gap-3 px-6 py-4 mb-14 bg-white/10 backdrop-blur-md border border-white/20 rounded-full transition-all duration-1000 ${
+              className={`inline-flex items-center gap-3 px-5 py-3 mb-14 bg-white/10 backdrop-blur-md border border-white/20 rounded-full transition-all duration-1000 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
@@ -241,9 +241,9 @@ function Hero() {
               </span>
             </div>
 
-            {/* Headline - LARGER */}
+            {/* Headline */}
             <h1
-              className={`text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-12 leading-[1.08] tracking-tight transition-all duration-1000 delay-150 ${
+              className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-12 leading-[1.08] tracking-tight transition-all duration-1000 delay-150 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
             >
@@ -252,9 +252,9 @@ function Hero() {
               <span className="text-amber-300">koja gradi domove</span>
             </h1>
 
-            {/* Subheadline - LARGER */}
+            {/* Subheadline */}
             <p
-              className={`text-xl sm:text-2xl text-white/90 mb-16 leading-relaxed font-light transition-all duration-1000 delay-300 ${
+              className={`text-lg sm:text-xl text-white/90 mb-16 leading-relaxed font-light transition-all duration-1000 delay-300 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
             >
@@ -269,7 +269,7 @@ function Hero() {
             >
               <button
                 onClick={() => scrollToSection('gallery')}
-                className="btn-primary px-8 py-4 bg-[var(--color-accent)] text-white font-bold text-lg rounded-sm hover:bg-[var(--color-accent-hover)] transition-all active:scale-[0.98] shadow-xl hover:shadow-2xl hover:-translate-y-2"
+                className="btn-primary px-8 py-4 bg-[var(--color-accent)] text-white font-bold text-lg rounded-sm hover:bg-[var(--color-accent-hover)] transition-all active:scale-[0.98] shadow-xl hover:shadow-2xl hover:-translate-y-1"
               >
                 Pogledaj radove
               </button>

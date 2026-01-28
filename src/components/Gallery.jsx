@@ -161,17 +161,17 @@ function Gallery() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
-          className={`text-center mb-20 lg:mb-28 transition-all duration-1000 ${
+          className={`text-center mb-24 lg:mb-32 max-w-4xl mx-auto transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <span className="inline-block text-[var(--color-accent)] text-sm font-bold tracking-widest uppercase mb-6">
             Portfolio
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight font-serif">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight font-serif">
             Naši radovi
           </h2>
-          <p className="text-2xl lg:text-3xl text-[var(--color-text-secondary)] max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-xl lg:text-2xl text-[var(--color-text-secondary)] max-w-3xl mx-auto leading-relaxed font-light">
             Pogledajte projekte koji govore više od riječi
           </p>
         </div>
@@ -212,16 +212,16 @@ function Gallery() {
         {/* Swipe Indicator - Only for "Sve" mode */}
         {activeFilter === 'sve' && (
           <div
-            className={`flex justify-center items-center gap-3 mb-12 text-[var(--color-text-secondary)] transition-all duration-1000 delay-400 ${
+            className={`flex justify-center items-center gap-3 lg:mb-12 text-[var(--color-text-secondary)] transition-all duration-1000 delay-400 ${
               isVisible && filteredProjects.length > 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
             <div className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full shadow-sm">
-              <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'}}>
+              <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
               </svg>
-              <span className="text-sm font-medium animate-pulse" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'}}>Prevuci za više</span>
-              <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'}}>
+              <span className="text-sm font-medium animate-pulse">Prevuci za više</span>
+              <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </div>
@@ -368,7 +368,7 @@ function Gallery() {
 
         {/* Navigation Controls & Counter - Only for "Sve" mode */}
         {activeFilter === 'sve' && filteredProjects.length > 1 && (
-          <div className="flex items-center justify-center gap-8 mt-16">
+          <div className="flex items-center justify-center gap-8 lg:mt-16">
             <button
               onClick={prevCard}
               disabled={currentCardIndex === 0}

@@ -91,7 +91,7 @@ function TrustBar() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-background)] py-20 lg:py-32 overflow-hidden"
+      className="relative bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-background)] pt-20 lg:pt-32 overflow-hidden"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-[0.03]">

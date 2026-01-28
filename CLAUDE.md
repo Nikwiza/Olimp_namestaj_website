@@ -311,6 +311,12 @@ The loop terminates when:
 **Fix:** Frontend-developer must implement actual features (embedded maps, real image lightboxes, functional forms). Placeholders should never pass design review.
 **Detection:** If a contact section has a gray box saying "Map" instead of an actual embedded map, this is wrong.
 
+### Failure 13: Adding Global CSS Resets That Override TailwindCSS
+**Problem:** Frontend-developer adds a global CSS reset like `* { margin: 0; padding: 0; box-sizing: border-box; }` to index.css, which overrides TailwindCSS 4's built-in preflight reset and breaks all padding/margin utilities.
+**Fix:** NEVER add global CSS resets to index.css. TailwindCSS 4 already includes a modern preflight reset. If you need custom base styles, use @layer base or target specific elements, never `*`.
+**Detection:** If index.css contains `* { margin: 0; padding: 0; box-sizing: border-box; }` or similar universal selector resets, this is wrong. If components have excessive inline padding like `p-10 lg:p-12 lg:p-14` to compensate for broken utilities, this is a symptom.
+**Critical:** This anti-pattern can cause the workflow to run multiple iterations with all padding broken, resulting in excessive compensatory spacing throughout the entire codebase.
+
 ---
 
 ## Quick Visual Check (For design-review-agent)

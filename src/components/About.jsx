@@ -99,21 +99,21 @@ function About() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Company Story - Enhanced */}
         <div
-          className={`max-w-4xl mx-auto text-center mb-24 lg:mb-32 transition-all duration-1000 ${
+          className={`max-w-4xl mx-auto text-center mb-28 lg:mb-36 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <span className="inline-block text-[var(--color-accent)] text-sm font-bold tracking-widest uppercase mb-6">
             O nama
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-text-primary)] mb-12 tracking-tight font-serif">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] mb-12 tracking-tight font-serif">
             Priča od <span className="text-[var(--color-accent)] relative inline-block">1996.
               <svg className="absolute -bottom-3 left-0 w-full h-3 text-[var(--color-accent)] opacity-20" preserveAspectRatio="none" viewBox="0 0 100 10">
                 <path d="M0 8 Q 50 0, 100 8" stroke="currentColor" fill="none" strokeWidth="2"/>
               </svg>
             </span>
           </h2>
-          <div className="space-y-8 text-2xl lg:text-3xl text-[var(--color-text-secondary)] leading-relaxed font-light">
+          <div className="space-y-12 text-2xl lg:text-3xl text-[var(--color-text-secondary)] leading-relaxed font-light">
             <p>
               <strong className="text-[var(--color-text-primary)] font-semibold">Srpska stolarska majstorija</strong> osnovana u vremenu kada je kvalitet značio sve.
               Ono što je počelo kao mala porodična radionica 1996. godine, izraslo je u pouzdano ime
@@ -128,11 +128,11 @@ function About() {
 
         {/* Services Header */}
         <div
-          className={`text-center mb-16 lg:mb-20 transition-all duration-1000 delay-200 ${
+          className={`text-center mb-28 lg:mb-36 max-w-4xl mx-auto transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <h3 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-text-primary)] tracking-tight mb-6 font-serif">
+          <h3 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] tracking-tight mb-6 font-serif">
             Šta radimo
           </h3>
           <p className="text-xl lg:text-2xl text-[var(--color-text-secondary)] font-light">
@@ -145,7 +145,7 @@ function About() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative p-10 lg:p-12 bg-white border-2 border-[var(--color-text-secondary)]/10 hover:border-[var(--color-accent)]/40 transition-all duration-700 card-hover ${
+              className={`group relative p-8 lg:p-10 bg-white border-2 border-[var(--color-text-secondary)]/10 hover:border-[var(--color-accent)]/40 transition-all duration-700 card-hover ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-12'
