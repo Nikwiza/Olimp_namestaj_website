@@ -57,7 +57,8 @@ function Footer() {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="group flex items-center gap-2 text-white/80 hover:text-[var(--color-accent-light)] transition-all duration-300 text-left text-lg"
+                  className="group flex items-center gap-2 px-6 py-3 text-white/80 hover:text-[var(--color-accent-light)] transition-all duration-300 text-left text-lg rounded-sm w-full hover:scale-105"
+                  style={{ border: 'none', background: 'transparent', cursor: 'pointer' }}
                 >
                   <span className="w-0 h-px bg-[var(--color-accent-light)] group-hover:w-6 transition-all duration-300"></span>
                   {link.label}

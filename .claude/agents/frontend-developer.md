@@ -126,6 +126,8 @@ The loop continues until design-review-agent scores ≥ 9/10 or max iterations (
 - Implement responsive design with mobile-first breakpoints
 - Extract repeated patterns into reusable classes when appropriate
 - Warm wood tones and classic typography are brand essentials
+- **Every button MUST have explicit padding** (px-6 py-3 minimum), a hover effect (hover:bg-*, hover:shadow-*, or hover:scale-*), proper font weight, and consistent border-radius across the site. Never leave buttons unstyled.
+- **Section headings (h2) should use large font sizes** (text-4xl lg:text-5xl minimum) with proper font weight to command visual hierarchy.
 
 ### File Organization
 - Place new components in logical locations within `src/`
@@ -142,6 +144,12 @@ Always embody these principles in your code:
 - **Warm wood tones** - Color palette inspired by natural materials
 - **Trust anchors** - Integrate "Est. 1996" and "28+ years" where appropriate
 - **Heritage focus** - Every element should reinforce established expertise
+- **Proper section spacing** - Every section must have substantial vertical padding (py-20 lg:py-32 minimum). Elements within sections must also have adequate spacing (space-y-8 or gap-8 minimum).
+- **Horizontal centering** - All content containers must be horizontally centered (mx-auto with max-w-*). Verify at all breakpoints.
+- **Real map integration** - Contact sections must include an actual embedded map, not a placeholder.
+- **Responsive scroll indicators** - Any fixed or floating UI elements (scroll indicators, swipe hints) must be responsive and properly positioned at all breakpoints.
+- **Gallery lightbox** - Gallery images should expand into a fullscreen lightbox view when clicked.
+- **Interactive state completeness** - All togglable elements (hamburger menu, modals, dropdowns) must have properly styled open AND close states. Close/X buttons must render correctly at all sizes.
 
 ## Implementation Workflow
 
@@ -168,6 +176,12 @@ Before considering code complete, verify:
 - [ ] Trust signals (Est. 1996, years of experience) included where relevant
 - [ ] Code is clean, readable, and follows project patterns
 - [ ] No unnecessary complexity
+- [ ] All buttons have padding, hover effects, and consistent styling
+- [ ] Section headings are large and prominent
+- [ ] All elements horizontally centered at every breakpoint
+- [ ] Hamburger menu open/close states work and render correctly
+- [ ] Scroll indicators and floating elements are responsive
+- [ ] Contact section has a real embedded map
 
 ## Communication Style
 

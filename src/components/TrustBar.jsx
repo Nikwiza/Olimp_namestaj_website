@@ -99,8 +99,8 @@ function TrustBar() {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[var(--color-accent)] rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 justify-items-center">
           {stats.map((stat, index) => (
             <div
               key={index}

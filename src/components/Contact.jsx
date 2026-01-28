@@ -126,7 +126,7 @@ function Contact() {
           <span className="inline-block text-[var(--color-accent)] text-sm font-bold tracking-widest uppercase mb-6">
             Kontakt
           </span>
-          <h2 className="text-6xl lg:text-7xl xl:text-8xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight font-serif">
             Razgovarajmo
           </h2>
           <p className="text-2xl lg:text-3xl text-[var(--color-text-secondary)] max-w-3xl mx-auto leading-relaxed font-light">
@@ -248,7 +248,7 @@ function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary group relative w-full px-10 py-6 bg-[var(--color-accent)] text-white font-bold text-xl hover:bg-[var(--color-accent-hover)] transition-all duration-400 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl overflow-hidden rounded-none hover:-translate-y-1"
+                  className="btn-primary group relative w-full px-8 py-4 bg-[var(--color-accent)] text-white font-bold text-xl hover:bg-[var(--color-accent-hover)] transition-all duration-400 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl overflow-hidden rounded-none hover:-translate-y-1"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-3">
                     {isSubmitting ? (
@@ -310,22 +310,18 @@ function Contact() {
                 ))}
               </div>
 
-              {/* Map Placeholder */}
-              <div className="bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-background)] h-72 flex items-center justify-center border-2 border-[var(--color-text-secondary)]/10 shadow-inner rounded-none">
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[var(--color-accent)]/10 mb-5">
-                    <svg className="w-10 h-10 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                      <circle cx="12" cy="10" r="3" />
-                    </svg>
-                  </div>
-                  <p className="text-[var(--color-text-primary)] font-bold text-xl mb-2">
-                    Beograd, Srbija
-                  </p>
-                  <p className="text-[var(--color-text-secondary)] text-sm">
-                    Dostupni smo za projekte širom Srbije
-                  </p>
-                </div>
+              {/* Real Google Maps Embed */}
+              <div className="h-72 border-2 border-[var(--color-text-secondary)]/10 shadow-inner rounded-none overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.3174!2d20.4489216!3d44.8125449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7aa3e1b866b5%3A0x1c5e17a5f4f5c5e5!2sBelgrade%2C%20Serbia!5e0!3m2!1sen!2sus!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Olimp Lokacija - Beograd, Srbija"
+                />
               </div>
             </div>
           </div>

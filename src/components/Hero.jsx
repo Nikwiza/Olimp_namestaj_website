@@ -103,7 +103,7 @@ function Hero() {
             >
               <button
                 onClick={() => scrollToSection('gallery')}
-                className="btn-primary group relative px-12 py-5 bg-[var(--color-accent)] text-white font-bold text-lg rounded-sm overflow-hidden transition-all duration-400 hover:shadow-2xl hover:-translate-y-2 active:scale-[0.98]"
+                className="btn-primary group relative px-8 py-4 bg-[var(--color-accent)] text-white font-bold text-lg rounded-sm overflow-hidden transition-all duration-400 hover:shadow-2xl hover:-translate-y-2 active:scale-[0.98]"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent-hover)] to-[var(--color-accent)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
                 <span className="relative flex items-center gap-3 z-10">
@@ -115,7 +115,7 @@ function Hero() {
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="btn-secondary px-12 py-5 border-2 border-[var(--color-text-primary)] text-[var(--color-text-primary)] font-bold text-lg rounded-sm hover:border-[var(--color-accent)] hover:text-white hover:bg-[var(--color-accent)] transition-all duration-400 active:scale-[0.98]"
+                className="btn-secondary px-8 py-4 border-2 border-[var(--color-text-primary)] text-[var(--color-text-primary)] font-bold text-lg rounded-sm hover:border-[var(--color-accent)] hover:text-white hover:bg-[var(--color-accent)] transition-all duration-400 active:scale-[0.98]"
               >
                 Kontaktiraj nas
               </button>
@@ -171,7 +171,7 @@ function Hero() {
           {/* Carousel navigation arrows */}
           <button
             onClick={prevImage}
-            className="absolute left-8 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all rounded-full flex items-center justify-center z-20 group"
+            className="absolute left-8 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all rounded-full flex items-center justify-center z-20 group hover:scale-110 hover:shadow-xl"
             aria-label="Prethodna slika"
           >
             <svg className="w-7 h-7 text-white transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +180,7 @@ function Hero() {
           </button>
           <button
             onClick={nextImage}
-            className="absolute right-8 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all rounded-full flex items-center justify-center z-20 group"
+            className="absolute right-8 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all rounded-full flex items-center justify-center z-20 group hover:scale-110 hover:shadow-xl"
             aria-label="Sledeća slika"
           >
             <svg className="w-7 h-7 text-white transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,16 +188,16 @@ function Hero() {
             </svg>
           </button>
 
-          {/* Scroll Indicator - Animated with MORE PRONOUNCED bounce */}
+          {/* Scroll Indicator - Clean and Simple */}
           <div
-            className={`absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/90 transition-opacity duration-1000 delay-1000 z-20 ${
+            className={`hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-white/90 transition-opacity duration-1000 delay-1000 z-20 ${
               isLoaded ? 'opacity-100' : 'opacity-0'
             }`}
           >
             <span className="text-xs uppercase tracking-widest font-semibold">Skroluj</span>
-            <div className="w-px h-16 bg-gradient-to-b from-white/80 to-transparent">
-              <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
-            </div>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
           </div>
         </div>
       </div>
@@ -269,26 +269,26 @@ function Hero() {
             >
               <button
                 onClick={() => scrollToSection('gallery')}
-                className="btn-primary px-12 py-5 bg-[var(--color-accent)] text-white font-bold text-lg rounded-sm hover:bg-[var(--color-accent-hover)] transition-all active:scale-[0.98] shadow-xl hover:shadow-2xl hover:-translate-y-2"
+                className="btn-primary px-8 py-4 bg-[var(--color-accent)] text-white font-bold text-lg rounded-sm hover:bg-[var(--color-accent-hover)] transition-all active:scale-[0.98] shadow-xl hover:shadow-2xl hover:-translate-y-2"
               >
                 Pogledaj radove
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="btn-secondary px-12 py-5 border-2 border-white/60 text-white font-bold text-lg rounded-sm hover:bg-white/20 hover:border-white backdrop-blur-sm transition-all active:scale-[0.98] shadow-lg hover:shadow-xl hover:-translate-y-1"
+                className="btn-secondary px-8 py-4 border-2 border-white/60 text-white font-bold text-lg rounded-sm hover:bg-white/20 hover:border-white backdrop-blur-sm transition-all active:scale-[0.98] shadow-lg hover:shadow-xl hover:-translate-y-1"
               >
                 Kontaktiraj nas
               </button>
             </div>
 
-            {/* Scroll Indicator */}
+            {/* Scroll Indicator - RESPONSIVE: hidden on very small screens */}
             <div
-              className={`flex flex-col items-center gap-2 text-white/70 transition-all duration-1000 delay-600 ${
+              className={`hidden xs:flex flex-col items-center gap-2 text-white/70 transition-all duration-1000 delay-600 ${
                 isLoaded ? 'opacity-100' : 'opacity-0'
               }`}
             >
               <span className="text-xs uppercase tracking-widest font-medium">Skroluj</span>
-              <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 animate-subtle-float" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>

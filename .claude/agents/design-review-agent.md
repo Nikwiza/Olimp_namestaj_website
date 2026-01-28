@@ -90,6 +90,8 @@ Execute a comprehensive design review following these phases:
 - Verify destructive action confirmations
 - Assess perceived performance and responsiveness
 - Click all buttons, links, form inputs to ensure they work
+- **Test ALL togglable UI states**: hamburger menu open/close, modals, dropdowns, accordions, lightboxes. Click to open, verify appearance and that close/exit buttons render correctly (not distorted or misaligned), click to close.
+- **Verify ALL buttons across the entire site** have proper styling: visible padding, hover effects, background color or border, and visual feedback on interaction. Buttons must NOT appear as unstyled text or have zero padding. Every button must have a visible hover state change. This is a common failure - always check.
 
 ### Phase 2: Responsiveness Testing
 Test across three critical breakpoints using `mcp__playwright__browser_resize`:
@@ -99,6 +101,8 @@ Test across three critical breakpoints using `mcp__playwright__browser_resize`:
 - After each resize, wait 1-2 seconds for reflow before screenshot
 - Verify no horizontal scrolling or element overlap at any breakpoint
 - Check that touch targets are at least 44x44px on mobile
+- **At EVERY breakpoint, verify all elements are horizontally centered** within their containers (unless intentionally left/right aligned). Misaligned or off-center elements are a common failure.
+- **Check that scroll indicators, fixed elements, and floating UI elements** are responsive and don't overflow or misposition at smaller viewports.
 
 ### Phase 3: Visual Polish
 Compare against `/home/nikwiza/Projects/Olimp_2/olimp-project/context/brand-story.md` guidelines:
@@ -110,6 +114,10 @@ Compare against `/home/nikwiza/Projects/Olimp_2/olimp-project/context/brand-stor
 - **Trust signals**: "Est. 1996", "28+ years" prominently displayed where appropriate
 - **Heritage focus**: Does every element reinforce established expertise?
 - **Professional animations**: Smooth, polished transitions that convey budget and seriousness (not janky or absent)
+- **Section headers**: Verify section headings (h2/h3) are appropriately sized - they should be large and prominent, not small or blending with body text. Each section heading should command attention.
+- **Section spacing**: Verify adequate vertical spacing exists BETWEEN sections AND between elements within sections. Cramped layouts are an auto-fail for this brand.
+- **Map verification**: If a contact section exists, verify there is an actual embedded map (Google Maps, Leaflet, or similar), not just a placeholder div.
+- **Button audit**: Every button on the page must have padding, a hover effect, and consistent styling. Unstyled or poorly styled buttons should be flagged as [High-Priority].
 
 ### Phase 4: Brand Alignment (Olimp-Specific)
 Check against brand pillars from context files:
@@ -135,6 +143,8 @@ Check against brand pillars from context files:
 - Stress test with content overflow scenarios
 - Verify loading, empty, and error states
 - Check edge case handling
+- **Test hamburger/mobile menu**: open it, verify the close (X) button is properly rendered and not distorted, close it, verify menu disappears cleanly.
+- **Test gallery interactions**: if clicking a photo should open a lightbox/expanded view, verify this works.
 
 ### Phase 7: Code Health (Quick Scan)
 - Verify component reuse over duplication
@@ -229,6 +239,7 @@ Immediately score 1-3 if ANY of these conditions are true (and state "SEND TO fr
 4. **Critical accessibility violations**: No keyboard navigation, no focus states, or unreadable contrast (< 3:1)
 5. **Missing core functionality**: Required interactions don't work (buttons don't click, forms don't submit)
 6. **Ignores brand guidelines completely**: Cramped layout with no whitespace, corporate blue/gray aesthetic, or stock imagery used instead of Olimp photos
+7. **Unstyled buttons**: If buttons across the site lack padding, hover effects, or any visual styling (appearing as plain text links or unstyled elements), this is a [High-Priority] issue.
 
 **Scoring for auto-fail conditions:**
 - If 1-2 conditions are true: Score 1-2

@@ -81,82 +81,43 @@ function Header() {
             </div>
           </div>
 
-          {/* Desktop Navigation - hidden on mobile */}
+          {/* Desktop Navigation - hidden on mobile, flex on md+ */}
           <nav
-            className="items-center gap-8 lg:gap-12"
+            className="hidden md:flex items-center gap-8 lg:gap-12"
             aria-label="Glavna navigacija"
-            style={{ display: 'none' }}
           >
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="nav-link text-[var(--color-text-primary)] hover:text-[var(--color-accent)] font-semibold text-base lg:text-lg tracking-wide transition-all duration-300"
+                className="nav-link px-6 py-3 text-[var(--color-text-primary)] hover:text-[var(--color-accent)] hover:bg-[var(--color-accent)]/5 font-semibold text-base lg:text-lg tracking-wide transition-all duration-300 rounded-sm hover:scale-105"
               >
                 {item.label}
               </button>
             ))}
           </nav>
-          {/* Desktop nav shown via CSS media query */}
-          <style>{`
-            @media (min-width: 768px) {
-              nav[aria-label="Glavna navigacija"] { display: flex !important; }
-              .mobile-menu-btn { display: none !important; }
-            }
-          `}</style>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Animated Hamburger */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="mobile-menu-btn"
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '44px',
-              height: '44px',
-              padding: '8px',
-              background: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              gap: '5px'
-            }}
-            aria-label="Otvori meni"
+            className="md:hidden relative w-12 h-12 flex flex-col justify-center items-center"
+            aria-label={isMobileMenuOpen ? "Zatvori meni" : "Otvori meni"}
             aria-expanded={isMobileMenuOpen}
           >
             <span
-              style={{
-                display: 'block',
-                width: '24px',
-                height: '3px',
-                backgroundColor: '#1A1A1A',
-                borderRadius: '2px',
-                transition: 'transform 0.3s ease',
-                transform: isMobileMenuOpen ? 'rotate(45deg) translateY(8px)' : 'none'
-              }}
+              className={`block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 ${
+                isMobileMenuOpen ? 'rotate-45 translate-y-[4px]' : ''
+              }`}
             />
             <span
-              style={{
-                display: 'block',
-                width: '24px',
-                height: '3px',
-                backgroundColor: '#1A1A1A',
-                borderRadius: '2px',
-                transition: 'opacity 0.3s ease',
-                opacity: isMobileMenuOpen ? 0 : 1
-              }}
+              className={`block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 my-1.5 ${
+                isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
+              }`}
             />
             <span
-              style={{
-                display: 'block',
-                width: '24px',
-                height: '3px',
-                backgroundColor: '#1A1A1A',
-                borderRadius: '2px',
-                transition: 'transform 0.3s ease',
-                transform: isMobileMenuOpen ? 'rotate(-45deg) translateY(-8px)' : 'none'
-              }}
+              className={`block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 ${
+                isMobileMenuOpen ? '-rotate-45 -translate-y-[4px]' : ''
+              }`}
             />
           </button>
         </div>
@@ -164,7 +125,7 @@ function Header() {
 
       {/* Mobile Menu */}
       <div
-        className="mobile-menu-container transition-all duration-300 overflow-hidden"
+        className="md:hidden transition-all duration-300 overflow-hidden"
         style={{
           maxHeight: isMobileMenuOpen ? '400px' : '0',
           opacity: isMobileMenuOpen ? 1 : 0
@@ -180,15 +141,13 @@ function Header() {
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               tabIndex={isMobileMenuOpen ? 0 : -1}
-              className="hover:text-[var(--color-accent)] transition-colors"
+              className="px-6 py-3 hover:text-[var(--color-accent)] hover:bg-[var(--color-accent)]/5 transition-all duration-300 rounded-sm text-left font-medium text-lg"
               style={{
                 color: '#1A1A1A',
-                fontWeight: 500,
-                fontSize: '18px',
-                textAlign: 'left',
                 background: 'none',
                 border: 'none',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                width: '100%'
               }}
             >
               {item.label}
@@ -196,11 +155,6 @@ function Header() {
           ))}
         </nav>
       </div>
-      <style>{`
-        @media (min-width: 768px) {
-          .mobile-menu-container { display: none !important; }
-        }
-      `}</style>
     </header>
   );
 }

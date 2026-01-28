@@ -28,6 +28,8 @@ function Gallery() {
   const [isChanging, setIsChanging] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -99,6 +101,37 @@ function Gallery() {
     }
   };
 
+  // Lightbox handlers
+  const openLightbox = (index) => {
+    setLightboxImageIndex(index);
+    setLightboxOpen(true);
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    document.body.style.overflow = ''; // Restore scroll
+  };
+
+  const nextLightboxImage = () => {
+    setLightboxImageIndex((prev) => (prev + 1) % filteredProjects.length);
+  };
+
+  const prevLightboxImage = () => {
+    setLightboxImageIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
+  };
+
+  // Close lightbox on Escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && lightboxOpen) {
+        closeLightbox();
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [lightboxOpen]);
+
   // Swipe handlers
   const handlers = useSwipeable({
     onSwipedLeft: () => nextCard(),
@@ -135,7 +168,7 @@ function Gallery() {
           <span className="inline-block text-[var(--color-accent)] text-sm font-bold tracking-widest uppercase mb-6">
             Portfolio
           </span>
-          <h2 className="text-6xl lg:text-7xl xl:text-8xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight font-serif">
             Naši radovi
           </h2>
           <p className="text-2xl lg:text-3xl text-[var(--color-text-secondary)] max-w-3xl mx-auto leading-relaxed font-light">
@@ -153,7 +186,7 @@ function Gallery() {
             <button
               key={filter.id}
               onClick={() => handleFilterChange(filter.id)}
-              className={`group relative px-8 py-4 text-base font-bold tracking-wide transition-all duration-400 overflow-hidden rounded-sm ${
+              className={`group relative px-8 py-4 text-base font-bold tracking-wide transition-all duration-400 overflow-hidden rounded-sm hover:scale-105 ${
                 activeFilter === filter.id
                   ? 'bg-[var(--color-accent)] text-white shadow-2xl scale-105'
                   : 'bg-white text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] border-2 border-[var(--color-text-secondary)]/20 hover:border-[var(--color-accent)]/60 shadow-md hover:shadow-xl'
@@ -176,33 +209,37 @@ function Gallery() {
           ))}
         </div>
 
-        {/* Swipe Indicator - MEDIUM-PRIORITY FIX: Enhanced animation */}
-        <div
-          className={`flex justify-center items-center gap-3 mb-12 text-[var(--color-text-secondary)] transition-all duration-1000 delay-400 ${
-            isVisible && filteredProjects.length > 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          <div className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full shadow-sm">
-            <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'}}>
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-            </svg>
-            <span className="text-sm font-medium animate-pulse" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'}}>Prevuci za više</span>
-            <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'}}>
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+        {/* Swipe Indicator - Only for "Sve" mode */}
+        {activeFilter === 'sve' && (
+          <div
+            className={`flex justify-center items-center gap-3 mb-12 text-[var(--color-text-secondary)] transition-all duration-1000 delay-400 ${
+              isVisible && filteredProjects.length > 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
+            <div className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full shadow-sm">
+              <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'}}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+              </svg>
+              <span className="text-sm font-medium animate-pulse" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'}}>Prevuci za više</span>
+              <svg className="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'}}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
           </div>
-        </div>
+        )}
 
-        {/* Stacked Photo Gallery with Swipe */}
-        <div
-          {...handlers}
-          className={`relative max-w-4xl mx-auto transition-opacity duration-300 ${
-            isChanging ? 'opacity-0' : 'opacity-100'
-          }`}
-          style={{ minHeight: '600px' }}
-        >
-          {filteredProjects.length > 0 ? (
-            <div className="relative w-full h-[600px] lg:h-[700px] flex items-center justify-center">
+        {/* Conditional rendering: Swipe mode for "Sve", Grid mode for specific categories */}
+        {activeFilter === 'sve' ? (
+          /* Stacked Photo Gallery with Swipe - Only for "Sve" */
+          <div
+            {...handlers}
+            className={`relative max-w-4xl mx-auto transition-opacity duration-300 ${
+              isChanging ? 'opacity-0' : 'opacity-100'
+            }`}
+            style={{ minHeight: '600px' }}
+          >
+            {filteredProjects.length > 0 ? (
+              <div className="relative w-full h-[600px] lg:h-[700px] flex items-center justify-center">
               {/* Stack of photos */}
               {filteredProjects.map((project, index) => {
                 const isActive = index === currentCardIndex;
@@ -219,7 +256,7 @@ function Gallery() {
                   <div
                     key={project.id}
                     className={`absolute w-full max-w-3xl transition-all duration-700 ease-out ${
-                      isActive ? 'cursor-grab active:cursor-grabbing' : 'pointer-events-none'
+                      isActive ? 'cursor-pointer' : 'pointer-events-none'
                     } ${isDragging ? 'cursor-grabbing' : ''}`}
                     style={{
                       transform: isActive
@@ -233,15 +270,24 @@ function Gallery() {
                         ? '0 25px 50px rgba(0, 0, 0, 0.25)'
                         : `0 ${10 + (index - currentCardIndex) * 5}px ${20 + (index - currentCardIndex) * 10}px rgba(0, 0, 0, 0.15)`,
                     }}
+                    onClick={() => isActive && openLightbox(index)}
                   >
-                    <div className="bg-white p-4 lg:p-6 rounded-sm shadow-xl border-4 border-white">
-                      <div className="aspect-[4/3] overflow-hidden rounded-sm bg-[var(--color-surface)] mb-4">
+                    <div className="bg-white p-4 lg:p-6 rounded-sm shadow-xl border-4 border-white group hover:border-[var(--color-accent)]/30 transition-all">
+                      <div className="aspect-[4/3] overflow-hidden rounded-sm bg-[var(--color-surface)] mb-4 relative">
                         <img
                           src={project.image}
                           alt={project.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           draggable="false"
                         />
+                        {/* Click indicator overlay */}
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-4">
+                            <svg className="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                          </div>
+                        </div>
                       </div>
                       <div className="text-center">
                         <h3 className="text-2xl lg:text-3xl font-bold text-[var(--color-text-primary)] font-serif mb-2">
@@ -269,15 +315,64 @@ function Gallery() {
               </p>
             </div>
           )}
-        </div>
+          </div>
+        ) : (
+          /* Grid Layout for Specific Categories */
+          <div
+            className={`transition-opacity duration-300 ${
+              isChanging ? 'opacity-0' : 'opacity-100'
+            }`}
+          >
+            {filteredProjects.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredProjects.map((project, index) => (
+                  <div
+                    key={project.id}
+                    className="group cursor-pointer bg-white p-4 rounded-sm shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                    onClick={() => openLightbox(index)}
+                  >
+                    <div className="aspect-[4/3] overflow-hidden rounded-sm bg-[var(--color-surface)] mb-4 relative">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-3">
+                          <svg className="w-6 h-6 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-[var(--color-text-primary)] font-serif mb-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-[var(--color-text-secondary)] uppercase tracking-wider">
+                      {filters.find(f => f.id === project.category)?.label || 'Projekt'}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-24">
+                <div className="text-6xl mb-6 text-[var(--color-accent)]/20">🔍</div>
+                <p className="text-2xl text-[var(--color-text-secondary)] font-light">
+                  Nema dostupnih projekata u ovoj kategoriji.
+                </p>
+              </div>
+            )}
+          </div>
+        )}
 
-        {/* Navigation Controls & Counter - MEDIUM-PRIORITY FIX: Added aria-live for accessibility */}
-        {filteredProjects.length > 1 && (
+        {/* Navigation Controls & Counter - Only for "Sve" mode */}
+        {activeFilter === 'sve' && filteredProjects.length > 1 && (
           <div className="flex items-center justify-center gap-8 mt-16">
             <button
               onClick={prevCard}
               disabled={currentCardIndex === 0}
-              className="w-14 h-14 rounded-full bg-white border-2 border-[var(--color-text-secondary)]/20 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center justify-center group shadow-lg"
+              className="w-14 h-14 rounded-full bg-white border-2 border-[var(--color-text-secondary)]/20 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center justify-center group shadow-lg hover:scale-110 hover:shadow-xl"
               aria-label="Prethodni projekat"
             >
               <svg className="w-6 h-6 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -294,7 +389,7 @@ function Gallery() {
             <button
               onClick={nextCard}
               disabled={currentCardIndex === filteredProjects.length - 1}
-              className="w-14 h-14 rounded-full bg-white border-2 border-[var(--color-text-secondary)]/20 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center justify-center group shadow-lg"
+              className="w-14 h-14 rounded-full bg-white border-2 border-[var(--color-text-secondary)]/20 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center justify-center group shadow-lg hover:scale-110 hover:shadow-xl"
               aria-label="Sledeći projekat"
             >
               <svg className="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -304,6 +399,86 @@ function Gallery() {
           </div>
         )}
       </div>
+
+      {/* Fullscreen Lightbox Modal */}
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center animate-fade-in"
+          onClick={closeLightbox}
+        >
+          {/* Close button */}
+          <button
+            onClick={closeLightbox}
+            className="absolute top-6 right-6 w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md flex items-center justify-center transition-all z-50 group hover:scale-110 hover:shadow-xl"
+            aria-label="Zatvori lightbox"
+          >
+            <svg className="w-8 h-8 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          {/* Image counter */}
+          <div className="absolute top-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full z-50">
+            <span className="text-white font-bold text-lg">
+              {lightboxImageIndex + 1} / {filteredProjects.length}
+            </span>
+          </div>
+
+          {/* Previous button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              prevLightboxImage();
+            }}
+            className="absolute left-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md flex items-center justify-center transition-all z-50 group hover:scale-110 hover:shadow-2xl"
+            aria-label="Prethodna slika"
+          >
+            <svg className="w-8 h-8 text-white group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Next button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              nextLightboxImage();
+            }}
+            className="absolute right-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md flex items-center justify-center transition-all z-50 group hover:scale-110 hover:shadow-2xl"
+            aria-label="Sledeća slika"
+          >
+            <svg className="w-8 h-8 text-white group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Image container */}
+          <div
+            className="max-w-7xl max-h-[90vh] mx-auto px-4 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={filteredProjects[lightboxImageIndex].image}
+              alt={filteredProjects[lightboxImageIndex].title}
+              className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-sm shadow-2xl animate-scale-in"
+            />
+            {/* Image title overlay */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 rounded-b-sm">
+              <h3 className="text-white text-3xl font-bold mb-2 font-serif">
+                {filteredProjects[lightboxImageIndex].title}
+              </h3>
+              <p className="text-white/80 text-lg">
+                {filters.find(f => f.id === filteredProjects[lightboxImageIndex].category)?.label || 'Projekt'}
+              </p>
+            </div>
+          </div>
+
+          {/* Instruction text */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm">
+            Pritisnite ESC ili kliknite izvan slike za zatvaranje
+          </div>
+        </div>
+      )}
     </section>
   );
 }

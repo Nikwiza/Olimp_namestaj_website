@@ -70,7 +70,7 @@ function Testimonials() {
           <span className="inline-block text-[var(--color-accent)] text-sm font-bold tracking-widest uppercase mb-6">
             Utisci
           </span>
-          <h2 className="text-6xl lg:text-7xl xl:text-8xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-text-primary)] mb-10 tracking-tight font-serif">
             Šta kažu klijenti
           </h2>
           <p className="text-2xl lg:text-3xl text-[var(--color-text-secondary)] max-w-3xl mx-auto leading-relaxed font-light">
@@ -83,7 +83,7 @@ function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <article
               key={testimonial.id}
-              className={`group relative p-12 lg:p-14 bg-white border-2 border-[var(--color-text-secondary)]/10 hover:border-[var(--color-accent)]/40 shadow-xl hover:shadow-2xl transition-all duration-700 card-hover rounded-sm ${
+              className={`group relative pt-10 px-12 pb-12 lg:pt-12 lg:px-14 lg:pb-14 bg-white border-2 border-[var(--color-text-secondary)]/10 hover:border-[var(--color-accent)]/40 shadow-xl hover:shadow-2xl transition-all duration-700 card-hover rounded-sm ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-16'
@@ -94,7 +94,7 @@ function Testimonials() {
               <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[var(--color-accent)] via-[var(--color-accent-light)] to-transparent"></div>
 
               {/* Quote Icon with background */}
-              <div className="relative mb-8">
+              <div className="relative mb-8 mt-4">
                 <div className="absolute -top-2 -left-2 text-8xl text-[var(--color-accent)]/5 font-serif leading-none select-none">
                   &ldquo;
                 </div>

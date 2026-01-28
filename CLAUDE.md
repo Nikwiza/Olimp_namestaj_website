@@ -291,6 +291,26 @@ The loop terminates when:
 **Fix:** frontend-developer MUST use Playwright to capture screenshots of reference URLs before implementing.
 **Detection:** If implementations don't match the quality/style of reference examples, research was skipped.
 
+### Failure 9: Unstyled or Poorly Styled Buttons
+**Problem:** Buttons render with no padding, no hover effects, or no visual styling - appearing as plain text.
+**Fix:** Every button must have explicit Tailwind padding classes, hover state classes, and consistent styling. Frontend-developer must audit all buttons before stating "Ready for design review".
+**Detection:** If any button on the page lacks visible padding or has no hover effect change, this is wrong.
+
+### Failure 10: Not Testing Interactive UI States
+**Problem:** The design-review-agent doesn't test togglable states like hamburger menu open/close, resulting in distorted close buttons or broken modals shipping.
+**Fix:** design-review-agent MUST click to open every togglable element (hamburger menu, modals, dropdowns, lightboxes), verify the opened state renders correctly (especially close/X buttons), then close it.
+**Detection:** If a hamburger menu's X button is distorted or a modal doesn't close properly, interactive states weren't tested.
+
+### Failure 11: Elements Not Horizontally Centered
+**Problem:** Content blocks, headings, or UI elements are not horizontally centered within their containers, especially at certain breakpoints.
+**Fix:** design-review-agent MUST check horizontal centering at ALL breakpoints (1440px, 1024px, 768px, 375px). Frontend-developer must use mx-auto, text-center, and flex/grid centering utilities consistently.
+**Detection:** If elements appear off-center or left-aligned when they should be centered, this is wrong.
+
+### Failure 12: Placeholder Elements Instead of Real Features
+**Problem:** Placeholder divs are used for maps, images, or interactive features instead of real implementations.
+**Fix:** Frontend-developer must implement actual features (embedded maps, real image lightboxes, functional forms). Placeholders should never pass design review.
+**Detection:** If a contact section has a gray box saying "Map" instead of an actual embedded map, this is wrong.
+
 ---
 
 ## Quick Visual Check (For design-review-agent)

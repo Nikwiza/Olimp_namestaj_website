@@ -20,9 +20,9 @@
   --font-family-serif: 'Cormorant Garamond', serif;
   --font-family-sans: 'Inter', sans-serif;
 
-  /* Generous Whitespace - DRAMATICALLY INCREASED EVEN MORE */
-  --spacing-section: 28rem;
-  --spacing-section-mobile: 14rem;
+  /* Generous Whitespace - MAXIMUM SPACING */
+  --spacing-section: 10rem;
+  --spacing-section-mobile: 6rem;
 
   /* Refined Transition Timing */
   --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
@@ -171,6 +171,17 @@ select:focus-visible {
   }
 }
 
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(4px);
+    opacity: 1;
+  }
+}
+
 @keyframes shimmer {
   0% {
     background-position: -1000px 0;
@@ -202,6 +213,10 @@ select:focus-visible {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+.animate-subtle-float {
+  animation: subtleFloat 2s ease-in-out infinite;
 }
 
 /* Scroll-triggered animations */
