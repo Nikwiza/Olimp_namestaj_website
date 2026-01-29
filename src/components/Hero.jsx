@@ -55,7 +55,7 @@ function Hero() {
       <div className="hidden lg:grid lg:grid-cols-2 w-full min-h-screen">
         {/* Left: Content - Properly centered in column */}
         <div className="flex items-center justify-center px-6 lg:px-8 xl:px-12 bg-gradient-to-br from-[var(--color-background)] to-[var(--color-surface)] relative z-10">
-          <div className="max-w-xl w-full pt-28">
+          <div className="max-w-xl w-full pt-16">
             {/* Heritage Badge - EVEN MORE PROMINENT */}
             <div
               className={`inline-flex items-center gap-3 mb-5 transition-all duration-1000 ${
@@ -72,7 +72,7 @@ function Hero() {
 
             {/* Main Headline */}
             <h1
-              className={`text-5xl xl:text-6xl 2xl:text-8xl font-bold text-[var(--color-text-primary)] mb-10 leading-[1.05] tracking-tight transition-all duration-1000 delay-150 ${
+              className={`text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[var(--color-text-primary)] mb-10 leading-[1.05] tracking-tight transition-all duration-1000 delay-150 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
             >

@@ -67,8 +67,29 @@ function Contact() {
         </svg>
       ),
       label: 'Telefon',
-      value: '+381 11 123 4567',
-      link: 'tel:+381111234567'
+      value: (
+        <div className="space-y-2">
+          <div className="flex flex-col">
+            <span className="text-sm text-[var(--color-text-secondary)]/70">Radionica:</span>
+            <a href="tel:+381214567890" className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors text-lg font-medium">
+              +381 21 456 789
+            </a>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm text-[var(--color-text-secondary)]/70">Željko Stojanović:</span>
+            <a href="tel:+381631234567" className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors text-lg font-medium">
+              +381 63 123 456
+            </a>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm text-[var(--color-text-secondary)]/70">Dejan Kerleta:</span>
+            <a href="tel:+381647890123" className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors text-lg font-medium">
+              +381 64 789 012
+            </a>
+          </div>
+        </div>
+      ),
+      link: null
     },
     {
       icon: (
@@ -78,8 +99,8 @@ function Contact() {
         </svg>
       ),
       label: 'Email',
-      value: 'info@olimp.rs',
-      link: 'mailto:info@olimp.rs'
+      value: 'olimp.namestaj@gmail.com',
+      link: 'mailto:olimp.namestaj@gmail.com'
     },
     {
       icon: (
@@ -89,7 +110,7 @@ function Contact() {
         </svg>
       ),
       label: 'Adresa',
-      value: 'Beograd, Srbija',
+      value: 'Titleska 4, Novi Sad, Serbia',
       link: null
     },
     {
@@ -203,7 +224,7 @@ function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-[var(--color-background)] border-2 border-[var(--color-text-secondary)]/15 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/20 transition-all outline-none text-lg rounded-none"
-                      placeholder="+381 11 123 4567"
+                      placeholder="+381 63 123 456"
                     />
                   </div>
                   <div>
@@ -303,7 +324,7 @@ function Contact() {
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-[var(--color-text-secondary)] text-lg">{info.value}</p>
+                        <div className="text-[var(--color-text-secondary)] text-lg">{info.value}</div>
                       )}
                     </div>
                   </div>
@@ -313,14 +334,14 @@ function Contact() {
               {/* Real Google Maps Embed */}
               <div className="h-72 border-2 border-[var(--color-text-secondary)]/10 shadow-inner rounded-none overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.3174!2d20.4489216!3d44.8125449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7aa3e1b866b5%3A0x1c5e17a5f4f5c5e5!2sBelgrade%2C%20Serbia!5e0!3m2!1sen!2sus!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2809.986!2d19.8335496!3d45.2671352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b10a0c1a7e5e5%3A0x1c5e17a5f4f5c5e5!2sTitleska%204%2C%20Novi%20Sad!5e0!3m2!1sen!2srs!4v1234567890"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Olimp Lokacija - Beograd, Srbija"
+                  title="Olimp Lokacija - Titleska 4, Novi Sad, Serbia"
                 />
               </div>
             </div>

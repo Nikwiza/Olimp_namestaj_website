@@ -72,20 +72,43 @@ function Footer() {
             <div className="space-y-5 text-white/80">
               <div className="group">
                 <p className="text-xs text-white/60 mb-2 uppercase tracking-wider">Telefon</p>
-                <a href="tel:+381111234567" className="hover:text-[var(--color-accent-light)] transition-colors text-lg font-medium flex items-center gap-2">
-                  <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  +381 11 123 4567
-                </a>
+                <div className="space-y-2">
+                  <div className="flex flex-col">
+                    <span className="text-xs text-white/50 mb-1">Radionica:</span>
+                    <a href="tel:+381214567890" className="hover:text-[var(--color-accent-light)] transition-colors text-base font-medium flex items-center gap-2">
+                      <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      +381 21 456 789
+                    </a>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-white/50 mb-1">Željko Stojanović:</span>
+                    <a href="tel:+381631234567" className="hover:text-[var(--color-accent-light)] transition-colors text-base font-medium flex items-center gap-2">
+                      <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      +381 63 123 456
+                    </a>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-white/50 mb-1">Dejan Kerleta:</span>
+                    <a href="tel:+381647890123" className="hover:text-[var(--color-accent-light)] transition-colors text-base font-medium flex items-center gap-2">
+                      <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      +381 64 789 012
+                    </a>
+                  </div>
+                </div>
               </div>
               <div className="group">
                 <p className="text-xs text-white/60 mb-2 uppercase tracking-wider">Email</p>
-                <a href="mailto:info@olimp.rs" className="hover:text-[var(--color-accent-light)] transition-colors text-lg font-medium flex items-center gap-2">
+                <a href="mailto:olimp.namestaj@gmail.com" className="hover:text-[var(--color-accent-light)] transition-colors text-lg font-medium flex items-center gap-2">
                   <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  info@olimp.rs
+                  olimp.namestaj@gmail.com
                 </a>
               </div>
               <div>
@@ -95,7 +118,7 @@ function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  Beograd, Srbija
+                  Titleska 4, Novi Sad, Serbia
                 </p>
               </div>
               <div>

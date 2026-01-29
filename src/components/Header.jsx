@@ -62,17 +62,17 @@ function Header() {
               <img
                 src={logoTop}
                 alt=""
-                className="logo-part logo-decorative w-14 lg:w-20 transition-all duration-500"
+                className="logo-part logo-decorative hidden lg:block lg:w-20 transition-all duration-500"
               />
               <img
                 src={logoLetters}
                 alt="Olimp"
-                className="logo-part logo-letters w-14 lg:w-20 transition-all duration-500"
+                className="logo-part logo-letters w-24 lg:w-20 transition-all duration-500 py-[2px]"
               />
               <img
                 src={logoBottom}
                 alt=""
-                className="logo-part logo-decorative w-14 lg:w-20 transition-all duration-500"
+                className="logo-part logo-decorative hidden lg:block lg:w-20 transition-all duration-500"
               />
             </button>
             <div className="hidden sm:flex flex-col text-[var(--color-text-secondary)] text-xs font-medium border-l-2 border-[var(--color-accent)]/40 pl-4">
@@ -105,18 +105,18 @@ function Header() {
             aria-expanded={isMobileMenuOpen}
           >
             <span
-              className={`block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 ${
-                isMobileMenuOpen ? 'rotate-45 translate-y-[4px]' : ''
+              className={`rounded-full block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 ${
+                isMobileMenuOpen ? 'rotate-45 translate-y-[8px] translate-x-[]' : ''
               }`}
             />
             <span
-              className={`block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 my-1.5 ${
+              className={`rounded-full block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 my-1.5 ${
                 isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
               }`}
             />
             <span
-              className={`block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 ${
-                isMobileMenuOpen ? '-rotate-45 -translate-y-[4px]' : ''
+              className={`rounded-full block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 ${
+                isMobileMenuOpen ? '-rotate-45 -translate-y-[6px]' : ''
               }`}
             />
           </button>

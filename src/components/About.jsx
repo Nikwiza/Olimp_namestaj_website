@@ -64,22 +64,26 @@ function About() {
       )
     },
     {
-      title: 'Stolarija',
-      description: 'Vrata i okviri koji dopunjuju karakter doma pažljivo odabranim detaljima.',
+      title: 'Kupatilski nameštaj',
+      description: 'Elegantni kupatilski ormarići i lavaboi prilagođeni prostoru i funkcionalnosti.',
       icon: (
         <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <rect x="6" y="2" width="12" height="20" rx="1" />
-          <circle cx="15" cy="12" r="1" fill="currentColor" />
+          <rect x="2" y="8" width="20" height="12" rx="2" />
+          <path d="M6 8V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2" />
+          <path d="M6 14h12M9 20v-6M15 20v-6" />
         </svg>
       )
     },
     {
-      title: 'Vrata',
-      description: 'Ulazna i unutrašnja vrata izrađena od kvalitetnih materijala.',
+      title: 'Komode',
+      description: 'Prostrane i funkcionalne komode sa elegantnim fiokama za organizaciju.',
       icon: (
         <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
-          <circle cx="14" cy="12" r="1" fill="currentColor" />
+          <rect x="3" y="4" width="18" height="16" rx="2" />
+          <path d="M3 10h18M3 14h18" />
+          <circle cx="8" cy="7" r="0.5" fill="currentColor" />
+          <circle cx="8" cy="12" r="0.5" fill="currentColor" />
+          <circle cx="8" cy="17" r="0.5" fill="currentColor" />
         </svg>
       )
     },
@@ -133,7 +137,7 @@ function About() {
           }`}
         >
           <h3 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] tracking-tight mb-6 font-serif">
-            Šta radimo
+            Šta radimo?
           </h3>
           <p className="text-xl lg:text-2xl text-[var(--color-text-secondary)] font-light">
             Prilagođena rešenja za svaki prostor u vašem domu

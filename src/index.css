@@ -249,7 +249,7 @@ select:focus-visible {
 .stagger-children.is-visible > *:nth-child(5) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
 .stagger-children.is-visible > *:nth-child(6) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
 
-/* Enhanced Logo Animation - FIX: Show decorative elements by default */
+/* Enhanced Logo Animation - Letters scaled down by default */
 .logo-part {
   transition: all 0.6s var(--transition-elegant);
 }
@@ -262,13 +262,7 @@ select:focus-visible {
   transform-origin: center;
 }
 
-.logo-container:hover .logo-decorative {
-  max-height: 60px;
-  opacity: 1;
-  transform: scaleY(1);
-}
-
-.logo-container:hover .logo-letters {
+.logo-letters {
   transform: scale(0.88);
 }
 

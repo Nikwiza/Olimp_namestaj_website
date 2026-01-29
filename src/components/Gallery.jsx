@@ -132,10 +132,19 @@ function Gallery() {
     return () => window.removeEventListener('keydown', handleEscape);
   }, [lightboxOpen]);
 
-  // Swipe handlers
+  // Swipe handlers for main gallery
   const handlers = useSwipeable({
     onSwipedLeft: () => nextCard(),
     onSwipedRight: () => prevCard(),
+    trackMouse: true, // Enable mouse drag on desktop
+    preventScrollOnSwipe: true,
+    delta: 10,
+  });
+
+  // Swipe handlers for lightbox
+  const lightboxHandlers = useSwipeable({
+    onSwipedLeft: () => nextLightboxImage(),
+    onSwipedRight: () => prevLightboxImage(),
     trackMouse: true, // Enable mouse drag on desktop
     preventScrollOnSwipe: true,
     delta: 10,
@@ -176,7 +185,7 @@ function Gallery() {
           </p>
         </div>
 
-        {/* Enhanced Filter Buttons - NITPICK FIX: Counts only on hover */}
+        {/* Enhanced Filter Buttons - Minimal by default, expand on hover/active */}
         <div
           className={`flex flex-wrap justify-center gap-4 mb-16 lg:mb-20 transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -186,24 +195,24 @@ function Gallery() {
             <button
               key={filter.id}
               onClick={() => handleFilterChange(filter.id)}
-              className={`group relative px-8 py-4 text-base font-bold tracking-wide transition-all duration-400 overflow-hidden rounded-sm hover:scale-105 ${
+              className={`group relative h-11 px-3 text-base font-bold tracking-wide transition-all duration-300 overflow-hidden rounded-sm flex items-center ${
                 activeFilter === filter.id
-                  ? 'bg-[var(--color-accent)] text-white shadow-2xl scale-105'
-                  : 'bg-white text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] border-2 border-[var(--color-text-secondary)]/20 hover:border-[var(--color-accent)]/60 shadow-md hover:shadow-xl'
+                  ? 'bg-[var(--color-accent)] text-white shadow-2xl px-6'
+                  : 'bg-white text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] border-2 border-[var(--color-text-secondary)]/20 hover:border-[var(--color-accent)]/60 shadow-md hover:shadow-xl hover:px-6'
               }`}
             >
               <span className="relative z-10 flex items-center gap-3">
                 {filter.label}
                 <span className={`text-sm px-2 py-1 rounded-full font-semibold transition-all duration-300 ${
                   activeFilter === filter.id
-                    ? 'bg-white/25 opacity-100'
-                    : 'bg-[var(--color-accent)]/10 text-[var(--color-accent)] opacity-0 group-hover:opacity-100'
+                    ? 'bg-white/25 opacity-100 w-auto'
+                    : 'bg-[var(--color-accent)]/10 text-[var(--color-accent)] opacity-0 w-0 px-0 group-hover:opacity-100 group-hover:w-auto group-hover:px-2'
                 }`}>
                   {filter.count}
                 </span>
               </span>
               {activeFilter !== filter.id && (
-                <span className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent)]/10 to-[var(--color-accent)]/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent)]/10 to-[var(--color-accent)]/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               )}
             </button>
           ))}
@@ -239,7 +248,7 @@ function Gallery() {
             style={{ minHeight: '600px' }}
           >
             {filteredProjects.length > 0 ? (
-              <div className="relative w-full h-[600px] lg:h-[700px] flex items-center justify-center">
+              <div className="relative w-full h-[500px] md:h-[680px] lg:h-[700px] flex items-center justify-center">
               {/* Stack of photos */}
               {filteredProjects.map((project, index) => {
                 const isActive = index === currentCardIndex;
@@ -290,14 +299,11 @@ function Gallery() {
                         </div>
                       </div>
                       <div className="text-center">
-                        <h3 className="text-2xl lg:text-3xl font-bold text-[var(--color-text-primary)] font-serif mb-2">
-                          {project.title}
-                        </h3>
-                        <div className="flex items-center justify-center gap-2 text-[var(--color-text-secondary)] text-sm">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="flex items-center justify-center gap-2 text-[var(--color-text-secondary)] text-base">
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                           </svg>
-                          <span className="uppercase tracking-wider font-medium">
+                          <span className="uppercase tracking-wider font-bold">
                             {filters.find(f => f.id === project.category)?.label || 'Projekt'}
                           </span>
                         </div>
@@ -346,12 +352,6 @@ function Gallery() {
                         </div>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-[var(--color-text-primary)] font-serif mb-1">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-[var(--color-text-secondary)] uppercase tracking-wider">
-                      {filters.find(f => f.id === project.category)?.label || 'Projekt'}
-                    </p>
                   </div>
                 ))}
               </div>
@@ -368,7 +368,7 @@ function Gallery() {
 
         {/* Navigation Controls & Counter - Only for "Sve" mode */}
         {activeFilter === 'sve' && filteredProjects.length > 1 && (
-          <div className="flex items-center justify-center gap-8 lg:mt-16">
+          <div className="flex items-center justify-center gap-8 lg:mt-16 md:mt-12">
             <button
               onClick={prevCard}
               disabled={currentCardIndex === 0}
@@ -454,6 +454,7 @@ function Gallery() {
 
           {/* Image container */}
           <div
+            {...lightboxHandlers}
             className="max-w-7xl max-h-[90vh] mx-auto px-4 relative"
             onClick={(e) => e.stopPropagation()}
           >
@@ -462,15 +463,14 @@ function Gallery() {
               alt={filteredProjects[lightboxImageIndex].title}
               className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-sm shadow-2xl animate-scale-in"
             />
-            {/* Image title overlay */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 rounded-b-sm">
-              <h3 className="text-white text-3xl font-bold mb-2 font-serif">
-                {filteredProjects[lightboxImageIndex].title}
-              </h3>
-              <p className="text-white/80 text-lg">
-                {filters.find(f => f.id === filteredProjects[lightboxImageIndex].category)?.label || 'Projekt'}
-              </p>
-            </div>
+            {/* Category label overlay - only show in "Sve" mode */}
+            {activeFilter === 'sve' && (
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 rounded-b-sm">
+                <p className="text-white text-2xl font-bold uppercase tracking-wide">
+                  {filters.find(f => f.id === filteredProjects[lightboxImageIndex].category)?.label || 'Projekt'}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Instruction text */}
