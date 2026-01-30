@@ -201,12 +201,12 @@ function Gallery() {
                   : 'bg-white text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] border-2 border-[var(--color-text-secondary)]/20 hover:border-[var(--color-accent)]/60 shadow-md hover:shadow-xl hover:px-6'
               }`}
             >
-              <span className="relative z-10 flex items-center gap-3">
+              <span className="relative z-10 flex items-center">
                 {filter.label}
-                <span className={`text-sm px-2 py-1 rounded-full font-semibold transition-all duration-300 ${
+                <span className={`text-sm py-1 rounded-full font-semibold transition-all duration-300 inline-block overflow-hidden whitespace-nowrap ${
                   activeFilter === filter.id
-                    ? 'bg-white/25 opacity-100 w-auto'
-                    : 'bg-[var(--color-accent)]/10 text-[var(--color-accent)] opacity-0 w-0 px-0 group-hover:opacity-100 group-hover:w-auto group-hover:px-2'
+                    ? 'bg-white/25 opacity-100 max-w-[3rem] ml-3 px-2'
+                    : 'bg-[var(--color-accent)]/10 text-[var(--color-accent)] opacity-0 max-w-0 ml-0 px-0 group-hover:opacity-100 group-hover:max-w-[3rem] group-hover:ml-3 group-hover:px-2'
                 }`}>
                   {filter.count}
                 </span>

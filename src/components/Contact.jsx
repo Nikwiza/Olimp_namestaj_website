@@ -45,6 +45,45 @@ function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Build email subject
+    const projectTypeLabels = {
+      'kuhinja': 'Kuhinja',
+      'plakar': 'Plakar',
+      'dnevna': 'Dnevna soba',
+      'spavaca': 'Spavaća soba',
+      'kupatilo': 'Kupatilski nameštaj',
+      'komode': 'Komode',
+      'ostalo': 'Ostalo'
+    };
+
+    const projectLabel = formData.projectType
+      ? projectTypeLabels[formData.projectType] || 'Novi projekat'
+      : 'Novi projekat';
+
+    const subject = `Upit - ${projectLabel}`;
+
+    // Build email body with clean formatting
+    let body = `Ime: ${formData.name}\n\n`;
+    body += `Email: ${formData.email}\n\n`;
+
+    if (formData.phone) {
+      body += `Telefon: ${formData.phone}\n\n`;
+    }
+
+    if (formData.projectType) {
+      body += `Tip projekta: ${projectLabel}\n\n`;
+    }
+
+    body += `Poruka:\n${formData.message}`;
+
+    // Construct mailto link with proper encoding
+    // TODO: change after testing back to olimp.namestaj@gmail.com
+    const mailtoLink = `mailto:nikola.kerleta1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Open mailto link
+    window.location.href = mailtoLink;
+
+    // Show success message after brief delay
     setTimeout(() => {
       setSubmitMessage('Hvala vam! Javićemo vam se uskoro.');
       setIsSubmitting(false);
@@ -243,8 +282,8 @@ function Contact() {
                       <option value="plakar">Plakar</option>
                       <option value="dnevna">Dnevna soba</option>
                       <option value="spavaca">Spavaća soba</option>
-                      <option value="stolarija">Unutrašnja stolarija</option>
-                      <option value="vrata">Vrata</option>
+                      <option value="kupatilo">Kupatilski nameštaj</option>
+                      <option value="komode">Komode</option>
                       <option value="ostalo">Ostalo</option>
                     </select>
                   </div>
