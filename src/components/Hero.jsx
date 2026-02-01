@@ -92,7 +92,7 @@ function Hero() {
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
             >
-              Više od 28 godina stvaramo namještaj koji postaje dio porodičnih priča.
+              Skoro tri decenije kreiramo moderna rešenja za prostore sa karakterom.
             </p>
 
             {/* CTAs - IMPROVED BUTTONS */}
@@ -243,13 +243,13 @@ function Hero() {
 
             {/* Headline */}
             <h1
-              className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-12 leading-[1.08] tracking-tight transition-all duration-1000 delay-150 ${
+              className={`text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-12 leading-[1.05] tracking-tight transition-all duration-1000 delay-150 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
             >
               Vaš prostor,
               <br />
-              <span className="text-amber-300">naš zanat</span>
+              <span className="text-amber-300 text-[1.15em]">naš zanat</span>
             </h1>
 
             {/* Subheadline */}
@@ -258,7 +258,7 @@ function Hero() {
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
             >
-              Više od 28 godina stvaramo namještaj koji postaje dio porodičnih priča.
+              Skoro tri decenije kreiramo moderna rešenja za prostore sa karakterom.
             </p>
 
             {/* CTAs - IMPROVED BUTTONS */}

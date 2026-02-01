@@ -167,7 +167,7 @@ function Testimonials() {
               </div>
 
               <p className="text-3xl lg:text-4xl text-[var(--color-text-primary)] font-bold mb-4 font-serif">
-                Porodice koje se vraćaju generacijama
+                Izbor koji se ponavlja.
               </p>
               <p className="text-lg lg:text-xl text-[var(--color-text-secondary)] font-light leading-relaxed">
                 Najveće priznanje je kada nam se klijenti ponovo javljaju.
