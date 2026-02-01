@@ -47,7 +47,7 @@ function About() {
       title: 'Dnevne sobe',
       description: 'Nameštaj koji spaja udobnost i estetiku za srce vašeg doma.',
       icon: (
-        <svg className="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
+        <svg className="w-10 h-10" viewBox="-2 -2 28 28" fill="currentColor">
           <path d="M9.00065 3C5.68694 3 3.00065 5.68629 3.00065 9V9.35115C1.47959 10.0975 0.633328 11.916 1.2667 13.6578L1.5792 14.5172C1.85802 15.2839 2.00065 16.0935 2.00065 16.9094V19.5C2.00065 20.3284 2.67222 21 3.50065 21H20.5006C21.3291 21 22.0006 20.3284 22.0006 19.5V16.9094C22.0006 16.0935 22.1433 15.2839 22.4221 14.5172L22.7346 13.6578C23.368 11.916 22.5217 10.0975 21.0006 9.35115V9C21.0006 5.68629 18.3144 3 15.0006 3H9.00065ZM19.0006 9.03175C17.3064 9.2618 16.0006 10.7141 16.0006 12.4715L16.0006 14H8.00065V12.4715C8.00065 10.7141 6.69488 9.2618 5.00065 9.03175V9C5.00065 6.79086 6.79151 5 9.00065 5H15.0006C17.2098 5 19.0006 6.79086 19.0006 9V9.03175ZM16.0006 16L16.0006 17H18.0006V12.4715C18.0006 11.6588 18.6595 11 19.4721 11C20.4933 11 21.204 12.0147 20.855 12.9743L20.5425 13.8337C20.184 14.8195 20.0006 15.8604 20.0006 16.9094V19H4.00065V16.9094C4.00065 15.8604 3.81727 14.8195 3.45879 13.8337L3.14629 12.9743C2.79732 12.0147 3.50802 11 4.52917 11C5.34185 11 6.00065 11.6588 6.00065 12.4715V17H8.00065V16H16.0006Z"></path>
         </svg>
       )
@@ -69,7 +69,7 @@ function About() {
       title: 'Kupatilski nameštaj',
       description: 'Elegantni kupatilski ormarići i lavaboi prilagođeni prostoru i funkcionalnosti.',
       icon: (
-        <svg className="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
+        <svg className="w-10 h-10" viewBox="-2 -2 28 28" fill="currentColor">
           <path d="M8 14c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1zm4 1c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm-3-7.5c-1.76 0-3.22 1.31-3.46 3h6.93a3.52 3.52 0 0 0-3.47-3M12 6c2.76 0 5 2.24 5 5v1H7v-1c0-2.76 2.24-5 5-5zM9 18c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm5-14H4v16h16V4m0-2c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h16z" />
         </svg>
       )
@@ -79,7 +79,7 @@ function About() {
       description: 'Prostrane i funkcionalne komode sa elegantnim fiokama za organizaciju.',
       icon: (
         <svg className="w-10 h-10" viewBox="0 0 256 256" fill="currentColor">
-          <path d="M142,192a6,6,0,0,1-6,6H120a6,6,0,0,1,0-12h16A6,6,0,0,1,142,192ZM120,70h16a6,6,0,0,0,0-12H120a6,6,0,0,0,0,12Zm16,52H120a6,6,0,0,0,0,12h16a6,6,0,0,0,0-12Zm78-82V216a14,14,0,0,1-14,14H56a14,14,0,0,1-14-14V40A14,14,0,0,1,56,26H200A14,14,0,0,1,214,40ZM54,154H202V102H54ZM54,40V90H202V40a2,2,0,0,0-2-2H56A2,2,0,0,0,54,40ZM202,216V166H54v50a2,2,0,0,0,2,2H200A2,2,0,0,0,202,216Z" />
+          <path d="M144,192a8,8,0,0,1-8,8H120a8,8,0,0,1,0-16h16A8,8,0,0,1,144,192ZM120,72h16a8,8,0,0,0,0-16H120a8,8,0,0,0,0,16Zm16,48H120a8,8,0,0,0,0,16h16a8,8,0,0,0,0-16Zm80-80V216a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V40A16,16,0,0,1,56,24H200A16,16,0,0,1,216,40ZM56,152H200V104H56ZM56,40V88H200V40ZM200,216V168H56v48Z" />
         </svg>
       )
     },
@@ -115,13 +115,10 @@ function About() {
           </h2>
           <div className="space-y-12 text-2xl lg:text-3xl text-[var(--color-text-secondary)] leading-relaxed font-light">
             <p>
-              <strong className="text-[var(--color-text-primary)] font-semibold">Srpska stolarska majstorija</strong> osnovana u vremenu kada je kvalitet značio sve.
-              Ono što je počelo kao mala porodična radionica 1996. godine, izraslo je u pouzdano ime
-              —ne kroz agresivnu ekspanziju, već kroz nepokolebljivu posvećenost kvalitetu.
+              U svetu masovne proizvodnje, mi smo izabrali teži, ali časniji put. Ono što je <strong className="text-[var(--color-text-primary)] font-semibold">1996. godine</strong> počelo kao skromna porodična radionica, danas je simbol za postojanost i vrhunsku stolariju <strong className="text-[var(--color-text-primary)] font-semibold">na Balkanu</strong>. Nismo jurili za brzim rastom; jurili smo za kvalitetom koji traje.
             </p>
             <p>
-              Naš biznis raste preporukama. <strong className="text-[var(--color-text-primary)] font-semibold">Zadovoljni kupci postaju naši ambasadori</strong>,
-              a njihove porodice se vraćaju generacijama. Svaki komad nameštaja nosi pečat srpske tradicije i moderne preciznosti.
+              Izgradili smo reputaciju bez agresivnog marketinga – isključivo kroz <strong className="text-[var(--color-text-primary)] font-semibold">vrhunski kvalitet rada i mrežu zadovoljnih klijenata. </strong> Radujemo se prilici da i za vas kreiramo sledeće moderno rešenje.
             </p>
           </div>
         </div>

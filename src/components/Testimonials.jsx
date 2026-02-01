@@ -25,26 +25,26 @@ function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      quote: 'Olimp nam je napravio kuhinju iz snova. Kvalitet izrade je nevjerovatan, a pažnja prema detaljima se vidi u svakom elementu. Prošlo je pet godina i sve izgleda kao prvi dan.',
-      name: 'Marko i Ana Jovanović',
-      project: 'Kuhinja po mjeri',
+      quote: 'Kontaktirao sam Olimp nameštaj po preporuci prijatelja i naručio malu kuhinju za vikendicu. Isporuka i montaža su bili na vreme, čak i nekoliko dana ranije nego što je dogovoreno. Sve preporuke za majstora Dejana i ekipu.',
+      name: 'Vladimir Ilić',
+      project: 'Kuhinja po meri',
       location: 'Beograd',
       rating: 5
     },
     {
       id: 2,
-      quote: 'Profesionalnost i posvećenost tima su nas oduševili. Od prvog sastanka do finalne montaže, sve je teklo glatko. Preporuka svima koji traže kvalitet.',
-      name: 'Petar Nikolić',
-      project: 'Kompletno opremanje stana',
+      quote: 'Фантастични мајстори! Кухиња је урађена савршено. За сваку препоруку!',
+      name: 'Petar Tomić',
+      project: 'Kuhinja po meri',
       location: 'Novi Sad',
       rating: 5
     },
     {
       id: 3,
-      quote: 'Radili smo sa više stolarskih radnji, ali Olimp je poseban. Njihovo iskustvo se vidi u svakom savjetu. Četvrti smo put da naručujemo nameštaj kod njih.',
-      name: 'Jelena Đorđević',
-      project: 'Spavaća soba i garderober',
-      location: 'Kragujevac',
+      quote: 'Најбољи ручно рађени намештај у граду. Лако 5 звездица :)',
+      name: 'Vasil Tomov',
+      project: 'Kompletan enterijer',
+      location: 'Novi Sad',
       rating: 5
     }
   ];

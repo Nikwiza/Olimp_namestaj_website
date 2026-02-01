@@ -76,10 +76,10 @@ function Hero() {
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
             >
-              Stolarska tradicija
+              Vaš prostor,
               <br />
               <span className="text-[var(--color-accent)] relative inline-block">
-                koja gradi domove
+                naš zanat
                 <svg className="absolute -bottom-3 left-0 w-full h-4 text-[var(--color-accent)] opacity-20" preserveAspectRatio="none" viewBox="0 0 100 10">
                   <path d="M0 8 Q 50 0, 100 8" stroke="currentColor" fill="none" strokeWidth="2"/>
                 </svg>
@@ -247,9 +247,9 @@ function Hero() {
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
             >
-              Stolarska tradicija
+              Vaš prostor,
               <br />
-              <span className="text-amber-300">koja gradi domove</span>
+              <span className="text-amber-300">naš zanat</span>
             </h1>
 
             {/* Subheadline */}
