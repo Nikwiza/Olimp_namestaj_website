@@ -111,6 +111,17 @@ function Footer() {
                   olimp.namestaj@gmail.com
                 </a>
               </div>
+              <div className="group">
+                <p className="text-xs text-white/60 mb-2 uppercase tracking-wider">Instagram</p>
+                <a href="https://www.instagram.com/olimp.namestaj" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-accent-light)] transition-colors text-lg font-medium flex items-center gap-2">
+                  <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <circle cx="12" cy="12" r="5" />
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+                  </svg>
+                  @olimp.namestaj
+                </a>
+              </div>
               <div>
                 <p className="text-xs text-white/60 mb-2 uppercase tracking-wider">Adresa</p>
                 <p className="text-lg flex items-center gap-2">
