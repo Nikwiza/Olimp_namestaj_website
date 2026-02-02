@@ -1,26 +1,54 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
 
-// Import kitchen images
-import kitchen1 from '../assets/images/Gallery/Kitchens/image.png';
-import kitchen2 from '../assets/images/Gallery/Kitchens/image copy.png';
-import kitchen3 from '../assets/images/Gallery/Kitchens/image copy 2.png';
-import kitchen4 from '../assets/images/Gallery/Kitchens/image copy 3.png';
+// Import kitchen images (20 total)
+import kitchen1 from '../assets/images/Gallery/Kitchens/kitchen_modern_potential_hero.jpg';
+import kitchen2 from '../assets/images/Gallery/Kitchens/kitchen_dark_and_light_potential_hero.jpg';
+import kitchen3 from '../assets/images/Gallery/Kitchens/potential_hero_kitchen_white.jpg';
+import kitchen4 from '../assets/images/Gallery/Kitchens/kitchen-wood.jpg';
+import kitchen5 from '../assets/images/Gallery/Kitchens/kitchen-wood-1.jpg';
+import kitchen6 from '../assets/images/Gallery/Kitchens/kitchen_white.jpg';
+import kitchen7 from '../assets/images/Gallery/Kitchens/kitchen_white_1.jpg';
+import kitchen8 from '../assets/images/Gallery/Kitchens/kitchen_whilte_2.jpg';
+import kitchen9 from '../assets/images/Gallery/Kitchens/kitchen_textured.jpg';
+import kitchen10 from '../assets/images/Gallery/Kitchens/kitchen_textured_v2.jpg';
+import kitchen11 from '../assets/images/Gallery/Kitchens/kitchen_textured_v2_1.jpg';
+import kitchen12 from '../assets/images/Gallery/Kitchens/kitchen_pink-ish.jpg';
+import kitchen13 from '../assets/images/Gallery/Kitchens/kitchen_dark_and_light_1.jpg';
+import kitchen14 from '../assets/images/Gallery/Kitchens/kitchen_modern.jpg';
+import kitchen15 from '../assets/images/Gallery/Kitchens/kitchen_modern_1.jpg';
+import kitchen16 from '../assets/images/Gallery/Kitchens/kitchen_modern_2.jpg';
+import kitchen17 from '../assets/images/Gallery/Kitchens/kitchen_white_slim.jpg';
+import kitchen18 from '../assets/images/Gallery/Kitchens/kitchen_white_slim_1.jpg';
+import kitchen19 from '../assets/images/Gallery/Kitchens/kitchen_white_slim_2.jpg';
+import kitchen20 from '../assets/images/Gallery/Kitchens/kitchen_wine_celler.jpg';
 
-// Import living room images
-import living1 from '../assets/images/Gallery/LivingRooms/image.png';
-import living2 from '../assets/images/Gallery/LivingRooms/image copy.png';
-import living3 from '../assets/images/Gallery/LivingRooms/image copy 2.png';
-import living4 from '../assets/images/Gallery/LivingRooms/Kitchen-white-modern.jpeg';
+// Import bedroom images (9 total)
+import bedroom1 from '../assets/images/Gallery/Bedrooms/bedroom_space.jpg';
+import bedroom2 from '../assets/images/Gallery/Bedrooms/bedroom_space_1.jpg';
+import bedroom3 from '../assets/images/Gallery/Bedrooms/bedroom_brown.jpg';
+import bedroom4 from '../assets/images/Gallery/Bedrooms/bedroom_brown_1.jpg';
+import bedroom5 from '../assets/images/Gallery/Bedrooms/bedroom_brown_light.jpg';
+import bedroom6 from '../assets/images/Gallery/Bedrooms/bedroom_pink-ish.jpg';
+import bedroom7 from '../assets/images/Gallery/Bedrooms/bedroom_pink-ish_1.jpg';
+import bedroom8 from '../assets/images/Gallery/Bedrooms/bedroom_floral_white.jpg';
+import bedroom9 from '../assets/images/Gallery/Bedrooms/bedroom_white.jpg';
 
-// Import bedroom images
-import bedroom1 from '../assets/images/Gallery/Bedrooms/image.png';
-import bedroom2 from '../assets/images/Gallery/Bedrooms/image copy.png';
-import bedroom3 from '../assets/images/Gallery/Bedrooms/image copy 2.png';
-import bedroom4 from '../assets/images/Gallery/Bedrooms/image copy 3.png';
+// Import bathroom images (2 total)
+import bathroom1 from '../assets/images/Gallery/Bathrooms/bathroom_textured_1.jpg';
+import bathroom2 from '../assets/images/Gallery/Bathrooms/bathroom-textured.jpg';
 
-// Import other images
-import other1 from '../assets/images/Gallery/Other/image.png';
+// Import office/interior images (5 total)
+import office1 from '../assets/images/Gallery/Offices/office_potential_hero.jpg';
+import office2 from '../assets/images/Gallery/Offices/office_1.jpg';
+import office3 from '../assets/images/Gallery/Offices/office_2.jpg';
+import office4 from '../assets/images/Gallery/Offices/office_3.jpg';
+import office5 from '../assets/images/Gallery/Offices/office_4.jpg';
+
+// Import front desk/reception images (3 total)
+import frontdesk1 from '../assets/images/Gallery/FrontDesks/front_desk_2_potential_hero.jpg';
+import frontdesk2 from '../assets/images/Gallery/FrontDesks/front_desk_1_potential_hero.jpg';
+import frontdesk3 from '../assets/images/Gallery/FrontDesks/front_desk.jpg';
 
 function Gallery() {
   const [activeFilter, setActiveFilter] = useState('sve');
@@ -51,26 +79,59 @@ function Gallery() {
   }, []);
 
   const projects = [
-    { id: 1, category: 'kuhinje', image: kitchen1, title: 'Moderna kuhinja', size: 'large' },
-    { id: 2, category: 'kuhinje', image: kitchen2, title: 'Klasična kuhinja', size: 'normal' },
-    { id: 3, category: 'kuhinje', image: kitchen3, title: 'Rustična kuhinja', size: 'normal' },
-    { id: 4, category: 'kuhinje', image: kitchen4, title: 'Minimalistička kuhinja', size: 'normal' },
-    { id: 5, category: 'dnevne', image: living1, title: 'Dnevni boravak', size: 'large' },
-    { id: 6, category: 'dnevne', image: living2, title: 'TV zid', size: 'normal' },
-    { id: 7, category: 'dnevne', image: living3, title: 'Biblioteka', size: 'normal' },
-    { id: 8, category: 'dnevne', image: living4, title: 'Kombinirani prostor', size: 'normal' },
-    { id: 9, category: 'spavace', image: bedroom1, title: 'Spavaća soba', size: 'large' },
-    { id: 10, category: 'spavace', image: bedroom2, title: 'Garderober', size: 'normal' },
-    { id: 11, category: 'spavace', image: bedroom3, title: 'Dečija soba', size: 'normal' },
-    { id: 12, category: 'spavace', image: bedroom4, title: 'Master bedroom', size: 'normal' },
-    { id: 13, category: 'ostalo', image: other1, title: 'Ostali projekti', size: 'normal' },
+    // Kitchens (20 images)
+    { id: 1, category: 'kuhinje', image: kitchen1, title: 'Moderna kuhinja sa drvom i hromom', size: 'large' },
+    { id: 2, category: 'kuhinje', image: kitchen2, title: 'Luksuzna kuhinja sa tamnim mramorom', size: 'normal' },
+    { id: 3, category: 'kuhinje', image: kitchen3, title: 'Bela kuhinja sa lustrom', size: 'normal' },
+    { id: 4, category: 'kuhinje', image: kitchen4, title: 'Kuhinja od drveta', size: 'normal' },
+    { id: 5, category: 'kuhinje', image: kitchen5, title: 'Drvenа kuhinja - varijanta 2', size: 'normal' },
+    { id: 6, category: 'kuhinje', image: kitchen6, title: 'Bela kuhinja', size: 'normal' },
+    { id: 7, category: 'kuhinje', image: kitchen7, title: 'Bela kuhinja - varijanta 2', size: 'normal' },
+    { id: 8, category: 'kuhinje', image: kitchen8, title: 'Bela kuhinja - varijanta 3', size: 'normal' },
+    { id: 9, category: 'kuhinje', image: kitchen9, title: 'Kuhinja sa mramornim bаr stolicama', size: 'normal' },
+    { id: 10, category: 'kuhinje', image: kitchen10, title: 'Teksturirana kuhinja', size: 'normal' },
+    { id: 11, category: 'kuhinje', image: kitchen11, title: 'Teksturirana kuhinja - varijanta 2', size: 'normal' },
+    { id: 12, category: 'kuhinje', image: kitchen12, title: 'Ružičasta kuhinja', size: 'normal' },
+    { id: 13, category: 'kuhinje', image: kitchen13, title: 'Kuhinja u tamnim i svetlim tonovima', size: 'normal' },
+    { id: 14, category: 'kuhinje', image: kitchen14, title: 'Moderna kuhinja', size: 'normal' },
+    { id: 15, category: 'kuhinje', image: kitchen15, title: 'Moderna kuhinja - varijanta 2', size: 'normal' },
+    { id: 16, category: 'kuhinje', image: kitchen16, title: 'Moderna kuhinja - varijanta 3', size: 'normal' },
+    { id: 17, category: 'kuhinje', image: kitchen17, title: 'Vitka bela kuhinja', size: 'normal' },
+    { id: 18, category: 'kuhinje', image: kitchen18, title: 'Vitka bela kuhinja - varijanta 2', size: 'normal' },
+    { id: 19, category: 'kuhinje', image: kitchen19, title: 'Vitka bela kuhinja - varijanta 3', size: 'normal' },
+    { id: 20, category: 'kuhinje', image: kitchen20, title: 'Vinski podrum', size: 'normal' },
+
+    // Bedrooms (9 images)
+    { id: 21, category: 'spavace', image: bedroom1, title: 'Dečija soba - svemirska tema', size: 'large' },
+    { id: 22, category: 'spavace', image: bedroom2, title: 'Dečija soba - svemirska tema 2', size: 'normal' },
+    { id: 23, category: 'spavace', image: bedroom3, title: 'Tamna spavaća soba sa drvenim panelima', size: 'normal' },
+    { id: 24, category: 'spavace', image: bedroom4, title: 'Braon spavaća soba', size: 'normal' },
+    { id: 25, category: 'spavace', image: bedroom5, title: 'Svetla braon spavaća soba', size: 'normal' },
+    { id: 26, category: 'spavace', image: bedroom6, title: 'Ružičasta spavaća soba', size: 'normal' },
+    { id: 27, category: 'spavace', image: bedroom7, title: 'Ružičasta spavaća soba - varijanta 2', size: 'normal' },
+    { id: 28, category: 'spavace', image: bedroom8, title: 'Bela spavaća soba sa cvećem', size: 'normal' },
+    { id: 29, category: 'spavace', image: bedroom9, title: 'Bela spavaća soba', size: 'normal' },
+
+    // Bathrooms (2 images)
+    { id: 30, category: 'kupatila', image: bathroom1, title: 'Kupatilo sa mramornim umivaonikom', size: 'large' },
+    { id: 31, category: 'kupatila', image: bathroom2, title: 'Teksturirano kupatilo', size: 'normal' },
+
+    // Interiors - Offices + Front Desks (8 images)
+    { id: 32, category: 'ostalo', image: office1, title: 'Kancelarija sa pozadinskim osvetljenjem', size: 'large' },
+    { id: 33, category: 'ostalo', image: office2, title: 'Kancelarija sa policama', size: 'normal' },
+    { id: 34, category: 'ostalo', image: office3, title: 'Kancelarija - detalj', size: 'normal' },
+    { id: 35, category: 'ostalo', image: office4, title: 'Dnevna soba sa trpezarijom', size: 'normal' },
+    { id: 36, category: 'ostalo', image: office5, title: 'Dnevna soba sa policama', size: 'normal' },
+    { id: 37, category: 'ostalo', image: frontdesk1, title: 'Recepcija Genesis sa zlatnim lustrima', size: 'normal' },
+    { id: 38, category: 'ostalo', image: frontdesk2, title: 'Recepcija Genesis - ugao', size: 'normal' },
+    { id: 39, category: 'ostalo', image: frontdesk3, title: 'Recepcija Genesis - prednji deo', size: 'normal' },
   ];
 
   const filters = [
     { id: 'sve', label: 'Sve', count: projects.length },
     { id: 'kuhinje', label: 'Kuhinje', count: projects.filter(p => p.category === 'kuhinje').length },
-    { id: 'dnevne', label: 'Dnevne sobe', count: projects.filter(p => p.category === 'dnevne').length },
     { id: 'spavace', label: 'Spavaće sobe', count: projects.filter(p => p.category === 'spavace').length },
+    { id: 'kupatila', label: 'Kupatila', count: projects.filter(p => p.category === 'kupatila').length },
     { id: 'ostalo', label: 'Ostalo', count: projects.filter(p => p.category === 'ostalo').length },
   ];
 
@@ -288,6 +349,7 @@ function Gallery() {
                           alt={project.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           draggable="false"
+                          loading="lazy"
                         />
                         {/* Click indicator overlay */}
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
@@ -342,6 +404,7 @@ function Gallery() {
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
                       />
                       {/* Hover overlay */}
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">

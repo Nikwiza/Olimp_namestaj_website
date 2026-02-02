@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-// Import multiple hero images for carousel
-import heroImage1 from '../assets/images/Gallery/Kitchens/image.png';
-import heroImage2 from '../assets/images/Gallery/Kitchens/image copy.png';
-import heroImage3 from '../assets/images/Gallery/LivingRooms/image.png';
-import heroImage4 from '../assets/images/Gallery/Bedrooms/image.png';
+// Import multiple hero images for carousel - all landscape format (3:2 ratio)
+import heroImage1 from '../assets/images/Gallery/Kitchens/kitchen_modern_potential_hero.jpg';
+import heroImage2 from '../assets/images/Gallery/Kitchens/kitchen_dark_and_light_potential_hero.jpg';
+import heroImage3 from '../assets/images/Gallery/FrontDesks/front_desk_2_potential_hero.jpg';
+import heroImage4 from '../assets/images/Gallery/Offices/office_4.jpg';
 
 function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
