@@ -100,23 +100,23 @@ function Header() {
           {/* Mobile Menu Button - Animated Hamburger */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden relative w-12 h-12 flex flex-col justify-center items-center"
+            className="md:hidden relative w-12 h-12"
             aria-label={isMobileMenuOpen ? "Zatvori meni" : "Otvori meni"}
             aria-expanded={isMobileMenuOpen}
           >
             <span
-              className={`rounded-full block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 ${
-                isMobileMenuOpen ? 'rotate-45 translate-y-[8px] translate-x-[]' : ''
+              className={`absolute left-3 rounded-full block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 ${
+                isMobileMenuOpen ? 'top-[22px] rotate-45' : 'top-[16px]'
               }`}
             />
             <span
-              className={`rounded-full block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 my-1.5 ${
+              className={`absolute left-3 top-[22px] rounded-full block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 ${
                 isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
               }`}
             />
             <span
-              className={`rounded-full block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 ${
-                isMobileMenuOpen ? '-rotate-45 -translate-y-[6px]' : ''
+              className={`absolute left-3 rounded-full block h-0.5 w-6 bg-[var(--color-text-primary)] transition-all duration-300 ${
+                isMobileMenuOpen ? 'top-[22px] -rotate-45' : 'top-[28px]'
               }`}
             />
           </button>
