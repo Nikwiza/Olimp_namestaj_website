@@ -83,7 +83,7 @@ function Header() {
 
           {/* Desktop Navigation - hidden on mobile, flex on md+ */}
           <nav
-            className="hidden md:flex items-center gap-8 lg:gap-12"
+            className="hidden lg:flex items-center gap-12"
             aria-label="Glavna navigacija"
           >
             {navItems.map((item) => (
@@ -100,7 +100,7 @@ function Header() {
           {/* Mobile Menu Button - Animated Hamburger */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden relative w-12 h-12"
+            className="lg:hidden relative w-12 h-12"
             aria-label={isMobileMenuOpen ? "Zatvori meni" : "Otvori meni"}
             aria-expanded={isMobileMenuOpen}
           >
@@ -125,7 +125,7 @@ function Header() {
 
       {/* Mobile Menu */}
       <div
-        className="md:hidden transition-all duration-300 overflow-hidden"
+        className="lg:hidden transition-all duration-300 overflow-hidden"
         style={{
           maxHeight: isMobileMenuOpen ? '400px' : '0',
           opacity: isMobileMenuOpen ? 1 : 0
